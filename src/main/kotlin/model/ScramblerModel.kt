@@ -29,7 +29,7 @@ class ScramblerModel
 	 * Verifica si la combinación del jugador concuerda
 	 * con la generada por el scrambler
 	 */
-	fun verifyCombination(playersCombination : Array<String>) : Boolean
+	fun verifyCombination(playersCombination : Array<String?>) : Boolean
 	{
 		/* testing */
 		println("Combination received: ")
