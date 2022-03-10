@@ -148,4 +148,25 @@ class PlayersGridModel
 
         return result.toString()
     }
+
+    /**
+     * Genera la combinación del usuario
+     * (la cuadrícula de 3x3 del centro)
+     * en forma de un arreglo de String
+     */
+    fun getCombination() : Array<String?>
+    {
+        val combination = arrayOfNulls<String>(9)
+        var i = 0
+
+        for (row in 1 until 4)
+        {
+            for (col in 1 until 4)
+            {
+                combination[i++] = grid[row][col];
+            }
+        }
+
+        return combination
+    }
 }
