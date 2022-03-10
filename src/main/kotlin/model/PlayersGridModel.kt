@@ -7,7 +7,7 @@ import kotlin.random.Random
 /**
  * Clase que representa el grid del jugador (su campo de juego)
  */
-class PlayersGrid
+class PlayersGridModel
 {
     // Número de filas y columnas
     private val NO_OF_ROWS_N_COLS = 5;
