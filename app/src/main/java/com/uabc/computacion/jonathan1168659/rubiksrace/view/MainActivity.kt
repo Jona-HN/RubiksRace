@@ -25,9 +25,12 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Grid inicial
         initializeGridOfButtons()
-        updateGrid(null)
+
+        val newGridButton = findViewById<Button>(R.id.buttonNewGrid)
+        newGridButton.setOnClickListener{
+            updateGrid(it)
+        }
     }
 
     /**
@@ -65,7 +68,7 @@ class MainActivity : AppCompatActivity()
      * Actualiza la vista del
      * grid del jugador
      */
-    fun updateGrid(view : View?)
+    fun updateGrid(view : View)
     {
         playersGridController.generateNewGrid()
         val playersGrid = playersGridController.getPlayersGrid()
@@ -78,9 +81,6 @@ class MainActivity : AppCompatActivity()
         {
             for (col in 0 until NO_OF_ROWS_N_COLS)
             {
-                /* testing */
-                println("$row, $col")
-                /* testing */
                 b = findViewById(gridOfButtons[row][col])
                 nextColor = playersGrid[row][col]
                 b.setBackgroundColor(nextColor)
