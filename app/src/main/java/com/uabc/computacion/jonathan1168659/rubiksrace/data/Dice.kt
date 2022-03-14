@@ -1,4 +1,4 @@
-package data
+package com.uabc.computacion.jonathan1168659.rubiksrace.data
 
 import kotlin.random.Random
 

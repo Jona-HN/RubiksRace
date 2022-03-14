@@ -1,9 +1,9 @@
-package model
+package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
 class RubiksRaceGameModel
 {
 	private val scrambler = ScramblerModel()
-	private val playersGrid = PlayersGridModel()
+//	private val playersGrid = PlayersGridModel()
 	var playerWon = false
 		private set
 
@@ -13,7 +13,7 @@ class RubiksRaceGameModel
 	 */
 	fun verifyIfPlayerWon()
 	{
-		playerWon = scrambler.verifyCombination(playersGrid.getCombination())
+//		playerWon = scrambler.verifyCombination(playersGrid.getCombination())
 	}
 
 	/**

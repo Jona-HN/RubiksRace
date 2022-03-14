@@ -1,13 +1,14 @@
-package model
+package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
-import data.DiceColor
-import java.awt.Point
+import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
+import android.graphics.Point
+import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import kotlin.random.Random
 
 /**
  * Clase que representa el grid del jugador (su campo de juego)
  */
-class PlayersGridModel
+class PlayersGridModel(controller : PlayersGridController)
 {
     // Número de filas y columnas
     private val NO_OF_ROWS_N_COLS = 5;

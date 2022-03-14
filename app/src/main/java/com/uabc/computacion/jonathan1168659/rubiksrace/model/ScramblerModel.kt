@@ -1,6 +1,6 @@
-package model
+package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
-import data.Dice
+import com.uabc.computacion.jonathan1168659.rubiksrace.data.Dice
 
 /**
  * Clase que representa un scrambler del juego Rubik's Race
