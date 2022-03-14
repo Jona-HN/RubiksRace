@@ -9,7 +9,7 @@ class ScramblerModel
 {
 	private var NO_OF_DICES = 9;
 	private val dices = Array<Dice>(NO_OF_DICES) { Dice() }
-	private var combination = arrayOfNulls<String>(NO_OF_DICES)
+	private var combination = IntArray(NO_OF_DICES)
 
 	/**
 	 * Genera una nueva combinación
@@ -29,7 +29,7 @@ class ScramblerModel
 	 * Verifica si la combinación del jugador concuerda
 	 * con la generada por el scrambler
 	 */
-	fun verifyCombination(playersCombination : Array<String?>) : Boolean
+	fun verifyCombination(playersCombination : IntArray) : Boolean
 	{
 		/* testing */
 		println("Combination received: ")

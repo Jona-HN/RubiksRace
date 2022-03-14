@@ -18,7 +18,7 @@ class PlayersGridController(view : MainActivity)
     /**
      * Regresa a la vista el grid generado
      */
-    fun getPlayersGrid() : Array<Array<String?>>
+    fun getPlayersGrid() : Array<IntArray>
     {
         return model.grid
     }

@@ -1,16 +1,18 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.view
 
-import android.graphics.Color
 import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatDelegate
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 
 class MainActivity : AppCompatActivity()
 {
+    // Número de filas y columnas
+    private val NO_OF_ROWS_N_COLS = 5
     private lateinit var gridOfButtons : Array<Array<Int>>
 
     // Controladores
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
+        // Forza el fondo claro para que la casilla negra se note
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -65,16 +69,21 @@ class MainActivity : AppCompatActivity()
     {
         playersGridController.generateNewGrid()
         val playersGrid = playersGridController.getPlayersGrid()
-
+        /* testing */
+        println("Generando un nuevo grid")
+        /* testing */
         var b : Button
-        for (row in 0 until 5)
+        var nextColor : Int
+        for (row in 0 until NO_OF_ROWS_N_COLS)
         {
-            for (col in 0 until 5)
+            for (col in 0 until NO_OF_ROWS_N_COLS)
             {
+                /* testing */
+                println("$row, $col")
+                /* testing */
                 b = findViewById(gridOfButtons[row][col])
-                /* testing */
-                b.setBackgroundColor(Color.RED)
-                /* testing */
+                nextColor = playersGrid[row][col]
+                b.setBackgroundColor(nextColor)
             }
         }
     }

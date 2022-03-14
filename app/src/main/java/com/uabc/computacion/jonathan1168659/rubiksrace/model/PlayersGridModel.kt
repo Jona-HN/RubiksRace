@@ -1,5 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
+import android.graphics.Color
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
 import android.graphics.Point
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
@@ -11,15 +12,15 @@ import kotlin.random.Random
 class PlayersGridModel(controller : PlayersGridController)
 {
     // Número de filas y columnas
-    private val NO_OF_ROWS_N_COLS = 5;
-    var grid = Array (5) { arrayOfNulls<String>(NO_OF_ROWS_N_COLS) }
+    private val NO_OF_ROWS_N_COLS = 5
+    var grid = Array (5) { IntArray(NO_OF_ROWS_N_COLS) }
         private set
     private lateinit var blackBoxIndices : Point
 
-    init
-    {
-        generateNewGrid()
-    }
+//    init
+//    {
+//        generateNewGrid()
+//    }
 
     /**
      * Genera un nuevo grid de colores de forma aleatoria
@@ -32,7 +33,7 @@ class PlayersGridModel(controller : PlayersGridController)
     {
         val colors = DiceColor.values()
         val repetitions = IntArray(colors.size)
-        var nextColor : String
+        var nextColor : Int
         var nextColorIndex : Int
         var nextColorReachedMaxRepetitions : Boolean
         var blackBoxAppeared = false
@@ -44,7 +45,7 @@ class PlayersGridModel(controller : PlayersGridController)
                 if (!blackBoxAppeared && Random.nextInt(1, 26) == 1)
                 {
                     blackBoxIndices = Point(row, col)
-                    nextColor = "Black"
+                    nextColor = Color.BLACK
                     blackBoxAppeared = true
                 }
                 else
@@ -87,7 +88,7 @@ class PlayersGridModel(controller : PlayersGridController)
         {
             val firstBoxIndexColor = grid[firstBoxIndices.x][firstBoxIndices.y]
             grid[secondBoxIndices.x][secondBoxIndices.y] = firstBoxIndexColor
-            grid[firstBoxIndices.x][firstBoxIndices.y] = "Black"
+            grid[firstBoxIndices.x][firstBoxIndices.y] = Color.BLACK
             blackBoxIndices = firstBoxIndices
 
             return true
@@ -131,33 +132,13 @@ class PlayersGridModel(controller : PlayersGridController)
     }
 
     /**
-     * Devuelve el grid del jugador en
-     * forma de String
-     */
-    fun gridToString() : String
-    {
-        val result = StringBuilder()
-
-        for (row in 0 until NO_OF_ROWS_N_COLS)
-        {
-            for (col in 0 until NO_OF_ROWS_N_COLS)
-            {
-                result.append("${grid[row][col]} \t")
-            }
-            result.append("\n")
-        }
-
-        return result.toString()
-    }
-
-    /**
      * Genera la combinación del usuario
      * (la cuadrícula de 3x3 del centro)
-     * en forma de un arreglo de String
+     * en forma de un arreglo de Int
      */
-    fun getCombination() : Array<String?>
+    fun getCombination() : IntArray
     {
-        val combination = arrayOfNulls<String>(9)
+        val combination = IntArray(9)
         var i = 0
 
         for (row in 1 until 4)

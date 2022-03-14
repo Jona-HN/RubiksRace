@@ -15,7 +15,7 @@ class Dice
     /**
      * Tira el dado y regresa la cara que salió
      */
-    fun roll() : String
+    fun roll() : Int
     {
         val face = colors[Random.nextInt(0, (FACES - 1))]
         topFace = face.color
