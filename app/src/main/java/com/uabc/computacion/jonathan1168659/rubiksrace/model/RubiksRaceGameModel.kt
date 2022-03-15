@@ -1,9 +1,10 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
-class RubiksRaceGameModel
+import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGameController
+
+class RubiksRaceGameModel(controller : RubiksRaceGameController)
 {
 	private val scrambler = ScramblerModel()
-//	private val playersGrid = PlayersGridModel()
 	var playerWon = false
 		private set
 
@@ -11,17 +12,25 @@ class RubiksRaceGameModel
 	 * Verifica si el jugador ganó, en dado caso,
 	 * actualiza la bandera correspondiente
 	 */
-	fun verifyIfPlayerWon()
+	fun verifyIfPlayerWon(playersCombination : IntArray)
 	{
-//		playerWon = scrambler.verifyCombination(playersGrid.getCombination())
+		playerWon = scrambler.verifyCombination(playersCombination)
 	}
 
 	/**
 	 * Genera una nueva combinación
 	 * por medio del scrambler
 	 */
-	fun generateNewGrid()
+	fun generateNewCombination()
 	{
 		scrambler.scramble()
+	}
+
+	/**
+	 * Regresa la combinación generada
+	 */
+	fun getCombination() : IntArray
+	{
+		return scrambler.combination;
 	}
 }

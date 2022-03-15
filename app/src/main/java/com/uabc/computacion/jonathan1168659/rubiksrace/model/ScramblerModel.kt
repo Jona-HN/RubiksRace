@@ -8,8 +8,9 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.data.Dice
 class ScramblerModel
 {
 	private var NO_OF_DICES = 9;
-	private val dices = Array<Dice>(NO_OF_DICES) { Dice() }
-	private var combination = IntArray(NO_OF_DICES)
+	private val dices = Array(NO_OF_DICES) { Dice() }
+	var combination = IntArray(NO_OF_DICES)
+		private set
 
 	/**
 	 * Genera una nueva combinación

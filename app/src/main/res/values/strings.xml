@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RubiksRace</string>
+    <string name="app_name">Rubik\'s Race</string>
     <string name="empty" />
     <string name="button1Cords">0 0</string>
     <string name="button2Cords">0 1</string>
@@ -26,5 +26,5 @@
     <string name="button23Cords">4 2</string>
     <string name="button24Cords">4 3</string>
     <string name="button25Cords">4 4</string>
-    <string name="buttonNewGrid">Generar nuevo grid</string>
+    <string name="buttonNewGrid">Start</string>
 </resources>

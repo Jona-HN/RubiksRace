@@ -10,14 +10,13 @@ class Dice
     private val colors = DiceColor.values()
     var topFace = roll()
         private set
-    val FACES = 6
 
     /**
      * Tira el dado y regresa la cara que salió
      */
     fun roll() : Int
     {
-        val face = colors[Random.nextInt(0, (FACES - 1))]
+        val face = colors[Random.nextInt(0, (colors.size - 1))]
         topFace = face.color
         return topFace
     }
