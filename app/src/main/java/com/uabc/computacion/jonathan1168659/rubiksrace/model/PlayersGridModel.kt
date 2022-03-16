@@ -66,30 +66,42 @@ class PlayersGridModel(controller : PlayersGridController)
     }
 
     /**
-     * Mueve la casilla indicada
+     * Intercambia las casillas indicadas
      */
-    fun moveGridBox(firstBoxIndices : Point, secondBoxIndices : Point) : Boolean
+    fun swapGridBoxes(firstBoxIndices : Point, secondBoxIndices : Point) : Boolean
     {
         // Se comprueba que primero se haya seleccionado
         // la casilla que se quiere mover. Y que la segunda casilla
         // seleccionada sea la casilla negra
         if (firstBoxIndices == blackBoxIndices || secondBoxIndices != blackBoxIndices)
         {
+            /* testing */
+            println("Orden incorrecto")
+            /* testing */
             return false
         }
         // Se comprueba que la casilla seleccionada sea adyacente
         // a la casilla negra
         else if (!boxIsAdjacentToBlackBox(firstBoxIndices))
         {
+            /* testing */
+            println("La casilla seleccionada no es adyacente")
+            /* testing */
             return false
         }
         // Una vez validado el movimiento, se realiza
         else
         {
-            val firstBoxIndexColor = grid[firstBoxIndices.x][firstBoxIndices.y]
-            grid[secondBoxIndices.x][secondBoxIndices.y] = firstBoxIndexColor
+            /* testing */
+            println("Todo salió bien")
+            /* testing */
+            val firstBoxColor = grid[firstBoxIndices.x][firstBoxIndices.y]
+            grid[secondBoxIndices.x][secondBoxIndices.y] = firstBoxColor
             grid[firstBoxIndices.x][firstBoxIndices.y] = Color.BLACK
-            blackBoxIndices = firstBoxIndices
+            blackBoxIndices = Point(firstBoxIndices)
+            /* testing */
+            println("Desde model: ahora la casilla negra se encuentra en $blackBoxIndices")
+            /* testing */
 
             return true
         }
@@ -150,5 +162,14 @@ class PlayersGridModel(controller : PlayersGridController)
         }
 
         return combination
+    }
+
+    /**
+     * Regresa el color almacenado en el grid
+     * (el cual representa una casilla)
+     */
+    fun getBoxColor(boxCoords : Point) : Int
+    {
+        return grid[boxCoords.x][boxCoords.y]
     }
 }

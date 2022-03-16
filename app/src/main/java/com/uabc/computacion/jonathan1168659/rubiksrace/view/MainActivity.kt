@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
@@ -67,12 +68,12 @@ class MainActivity : AppCompatActivity()
      */
     fun onBoxClick(view : View)
     {
-        val clickedBoxCordsList = view.tag.toString().split(" ")
-        val x = Integer.valueOf(clickedBoxCordsList[0])
-        val y = Integer.valueOf(clickedBoxCordsList[1])
-        val clickedBoxCords = Point(x, y)
+        val clickedBoxCoordsList = view.tag.toString().split(" ")
+        val x = Integer.valueOf(clickedBoxCoordsList[0])
+        val y = Integer.valueOf(clickedBoxCoordsList[1])
+        val clickedBoxCoords = Point(x, y)
 
-        println(clickedBoxCords.toString())
+        playersGridController.onBoxClick(clickedBoxCoords)
     }
 
     /**
@@ -127,5 +128,24 @@ class MainActivity : AppCompatActivity()
             b = findViewById(scramblerButtons[i])
             b.setBackgroundColor(color)
         }
+    }
+
+    /**
+     * Muestra un Toast para indicar
+     * que el movimiento hecho por el jugador
+     * no fue válido
+     */
+    fun showInvalidMoveToast()
+    {
+        Toast.makeText(this, "Movimiento inválido", Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Actualiza el color de la casilla especificada
+     */
+    fun updateBoxColor(boxCoords : Point, color : Int)
+    {
+        val button = findViewById<Button>(playersGridButtons[boxCoords.x][boxCoords.y])
+        button.setBackgroundColor(color)
     }
 }
