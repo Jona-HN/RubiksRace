@@ -37,27 +37,6 @@ class ScramblerModel
 
 			repetitions[nextColorIndex]++
 			combination[index] = topFace.color
-			/* testing */
-			println("Dice no. ${index + 1} is color ${dice.topFace}")
-			/* testing */
 		}
-	}
-
-	/**
-	 * Verifica si la combinación del jugador concuerda
-	 * con la generada por el scrambler
-	 */
-	fun verifyCombination(playersCombination : IntArray) : Boolean
-	{
-		/* testing */
-		println("Combination received: ")
-		for (color in playersCombination)
-		{
-			println(color)
-		}
-		/* testing */
-		val allDicesMatch = playersCombination.contentEquals(combination);
-
-		return allDicesMatch
 	}
 }

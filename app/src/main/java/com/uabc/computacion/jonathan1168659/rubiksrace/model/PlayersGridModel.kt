@@ -3,24 +3,18 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.model
 import android.graphics.Color
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
 import android.graphics.Point
-import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import kotlin.random.Random
 
 /**
  * Clase que representa el grid del jugador (su campo de juego)
  */
-class PlayersGridModel(controller : PlayersGridController)
+class PlayersGridModel
 {
     // Número de filas y columnas
     private val NO_OF_ROWS_N_COLS = 5
     var grid = Array (5) { IntArray(NO_OF_ROWS_N_COLS) }
         private set
     private lateinit var blackBoxIndices : Point
-
-//    init
-//    {
-//        generateNewGrid()
-//    }
 
     /**
      * Genera un nuevo grid de colores de forma aleatoria
@@ -75,33 +69,21 @@ class PlayersGridModel(controller : PlayersGridController)
         // seleccionada sea la casilla negra
         if (firstBoxIndices == blackBoxIndices || secondBoxIndices != blackBoxIndices)
         {
-            /* testing */
-            println("Orden incorrecto")
-            /* testing */
             return false
         }
         // Se comprueba que la casilla seleccionada sea adyacente
         // a la casilla negra
         else if (!boxIsAdjacentToBlackBox(firstBoxIndices))
         {
-            /* testing */
-            println("La casilla seleccionada no es adyacente")
-            /* testing */
             return false
         }
         // Una vez validado el movimiento, se realiza
         else
         {
-            /* testing */
-            println("Todo salió bien")
-            /* testing */
             val firstBoxColor = grid[firstBoxIndices.x][firstBoxIndices.y]
             grid[secondBoxIndices.x][secondBoxIndices.y] = firstBoxColor
             grid[firstBoxIndices.x][firstBoxIndices.y] = Color.BLACK
             blackBoxIndices = Point(firstBoxIndices)
-            /* testing */
-            println("Desde model: ahora la casilla negra se encuentra en $blackBoxIndices")
-            /* testing */
 
             return true
         }
