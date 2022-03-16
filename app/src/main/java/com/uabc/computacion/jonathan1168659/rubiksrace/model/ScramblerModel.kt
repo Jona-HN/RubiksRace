@@ -1,6 +1,7 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.Dice
+import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
 
 /**
  * Clase que representa un scrambler del juego Rubik's Race
@@ -13,13 +14,29 @@ class ScramblerModel
 		private set
 
 	/**
-	 * Genera una nueva combinación
+	 * Genera una nueva combinación con la condición
+	 * de que cada color no puede repetirse más
+	 * de 4 veces
 	 */
 	fun scramble()
 	{
+		val colors = DiceColor.values()
+		val repetitions = IntArray(colors.size)
+		var topFace : DiceColor
+		var nextColorReachedMaxRepetitions : Boolean
+		var nextColorIndex : Int
+
 		for ((index, dice) in dices.withIndex())
 		{
-			combination[index] = dice.roll()
+			do
+			{
+				topFace = dice.roll()
+				nextColorIndex = colors.indexOf(topFace)
+				nextColorReachedMaxRepetitions = repetitions[nextColorIndex] > 3
+			} while (nextColorReachedMaxRepetitions)
+
+			repetitions[nextColorIndex]++
+			combination[index] = topFace.color
 			/* testing */
 			println("Dice no. ${index + 1} is color ${dice.topFace}")
 			/* testing */

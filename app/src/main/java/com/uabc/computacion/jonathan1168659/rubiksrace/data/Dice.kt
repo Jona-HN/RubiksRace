@@ -1,5 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.data
 
+import android.graphics.Color
 import kotlin.random.Random
 
 /**
@@ -14,10 +15,10 @@ class Dice
     /**
      * Tira el dado y regresa la cara que salió
      */
-    fun roll() : Int
+    fun roll() : DiceColor
     {
         val face = colors[Random.nextInt(0, (colors.size - 1))]
-        topFace = face.color
+        topFace = face
         return topFace
     }
 }
