@@ -474,4 +474,14 @@
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toEndOf="@+id/buttonScrambler4" />
 
+    <Button
+        android:id="@+id/buttonCheckCombination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonCheckCombination"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGrid23" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

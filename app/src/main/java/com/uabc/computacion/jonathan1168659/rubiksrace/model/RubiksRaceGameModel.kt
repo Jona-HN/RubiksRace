@@ -31,6 +31,6 @@ class RubiksRaceGameModel(controller : RubiksRaceGameController)
 	 */
 	fun getCombination() : IntArray
 	{
-		return scrambler.combination;
+		return scrambler.combination
 	}
 }

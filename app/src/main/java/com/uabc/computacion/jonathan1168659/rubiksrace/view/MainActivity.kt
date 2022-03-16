@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity()
 
     // Controladores
     private val playersGridController = PlayersGridController(this)
-    private val rubiksRaceGameController = RubiksRaceGameController(this)
+    private val rubiksRaceGameController = RubiksRaceGameController(this, playersGridController)
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity()
         newGridButton.setOnClickListener{
             updateGrids(it)
             newGridButton.text = "Restart"
+        }
+
+        val checkButton = findViewById<Button>(R.id.buttonCheckCombination)
+        checkButton.setOnClickListener{
+            checkPlayerCombination()
         }
     }
 
@@ -132,13 +137,12 @@ class MainActivity : AppCompatActivity()
     }
 
     /**
-     * Muestra un Toast para indicar
-     * que el movimiento hecho por el jugador
-     * no fue válido
+     * Muestra un Toast con un mensaje para
+     * indicarle el resultado de una acción al usuario
      */
-    fun showInvalidMoveToast()
+    fun showMessage(mensaje : String)
     {
-        Toast.makeText(this, "Movimiento inválido", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
     }
 
     /**
@@ -148,5 +152,14 @@ class MainActivity : AppCompatActivity()
     {
         val button = findViewById<Button>(playersGridButtons[boxCoords.x][boxCoords.y])
         button.setBackgroundColor(color)
+    }
+
+    /**
+     * Le indica al controlador que verifique
+     * la combinación del jugador
+     */
+    private fun checkPlayerCombination()
+    {
+        rubiksRaceGameController.checkIfPlayerWon()
     }
 }

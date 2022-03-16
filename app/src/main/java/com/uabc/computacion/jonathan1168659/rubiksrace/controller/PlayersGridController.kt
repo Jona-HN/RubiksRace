@@ -32,9 +32,6 @@ class PlayersGridController(private val view: MainActivity)
      * Al momento de seleccionar la segunda casilla,
      * le indica al modelo que haga el movimiento de casillas
      */
-    // TODO: corregir bug
-    // (sólo permite hacer el primer movimiento, el segundo dice que
-    // el orden es incorrecto).
     fun onBoxClick(clickedBoxCoords : Point)
     {
         if (firstBoxCoords.equals(-1, -1))
@@ -56,12 +53,20 @@ class PlayersGridController(private val view: MainActivity)
             }
             else
             {
-                view.showInvalidMoveToast()
+                view.showMessage("Movimiento inválido")
             }
 
             // Se reinician los valores
             firstBoxCoords.set(-1, -1)
             secondBoxCoords.set(-1, -1)
         }
+    }
+
+    /**
+     * Regresa la combinación del jugador
+     */
+    fun getCombination() : IntArray
+    {
+        return model.getCombination()
     }
 }

@@ -27,4 +27,5 @@
     <string name="button24Coords">4 3</string>
     <string name="button25Coords">4 4</string>
     <string name="buttonNewGrid">Start</string>
+    <string name="buttonCheckCombination">Check</string>
 </resources>
