@@ -19,7 +19,8 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
 
         if (model.playerWon)
         {
-            view.showMessage("¡Felicidades! Has ganado")
+            model.stopTimer()
+            view.showMessage("¡Felicidades! Has ganado y has tardado ${model.totalTime} segundos")
         }
         else
         {
@@ -43,5 +44,14 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
         {
             view.updateColorOfScramblerBox(i, color)
         }
+    }
+
+    /**
+     * Indica al modelo que empiece a tomar
+     * el tiempo
+     */
+    fun startTimer()
+    {
+        model.startTimer()
     }
 }

@@ -29,15 +29,17 @@ class MainActivity : AppCompatActivity()
 
         initializeGrids()
 
+        val checkButton = findViewById<Button>(R.id.buttonCheckCombination)
+        checkButton.setOnClickListener{
+            checkPlayerCombination()
+        }
+
         val newGridButton = findViewById<Button>(R.id.buttonStart)
         newGridButton.setOnClickListener{
             updateGrids(it)
             newGridButton.text = "Restart"
-        }
-
-        val checkButton = findViewById<Button>(R.id.buttonCheckCombination)
-        checkButton.setOnClickListener{
-            checkPlayerCombination()
+            rubiksRaceGameController.startTimer()
+            checkButton.isEnabled = true
         }
     }
 
