@@ -13,8 +13,6 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGame
 
 class MainActivity : AppCompatActivity()
 {
-    // Número de filas y columnas
-    private val NO_OF_ROWS_N_COLS = 5
     private lateinit var playersGridButtons : Array<Array<Int>>
     private lateinit var scramblerButtons : Array<Int>
 
@@ -86,54 +84,10 @@ class MainActivity : AppCompatActivity()
      * Manda a llamar a los métodos encargados
      * de actualizar sus vistas correspondientes
      */
-    fun updateGrids(view : View)
+    private fun updateGrids(view : View)
     {
-        updatePlayersGridView()
-        updateScramblerGridView()
-    }
-
-    /**
-     * Actualiza la vista del grid
-     * del jugador
-     */
-    private fun updatePlayersGridView()
-    {
-        playersGridController.generateNewGrid()
-        val playersGrid = playersGridController.getPlayersGrid()
-        /* testing */
-        println("Generando un nuevo grid del jugador")
-        /* testing */
-        var b : Button
-        var nextColor : Int
-        for (row in 0 until NO_OF_ROWS_N_COLS)
-        {
-            for (col in 0 until NO_OF_ROWS_N_COLS)
-            {
-                b = findViewById(playersGridButtons[row][col])
-                nextColor = playersGrid[row][col]
-                b.setBackgroundColor(nextColor)
-            }
-        }
-    }
-
-    /**
-     * Actualiza la vista del
-     * grid del scrambler
-     */
-    private fun updateScramblerGridView()
-    {
-        rubiksRaceGameController.generateNewCombination()
-        val scramblerGrid = rubiksRaceGameController.getCombination()
-        /* testing */
-        println("Generando nueva combinación (scramble)")
-        /* testing */
-        var b : Button
-
-        for ((i, color) in scramblerGrid.withIndex())
-        {
-            b = findViewById(scramblerButtons[i])
-            b.setBackgroundColor(color)
-        }
+        playersGridController.updatePlayersGridView()
+        rubiksRaceGameController.updateScramblerGridView()
     }
 
     /**
@@ -146,11 +100,21 @@ class MainActivity : AppCompatActivity()
     }
 
     /**
-     * Actualiza el color de la casilla especificada
+     * Actualiza el color de una casilla
+     * del grid del jugador
      */
-    fun updateBoxColor(boxCoords : Point, color : Int)
+    fun updateColorOfPlayersGridBox(boxCoords : Point, color : Int)
     {
         val button = findViewById<Button>(playersGridButtons[boxCoords.x][boxCoords.y])
+        button.setBackgroundColor(color)
+    }
+    /**
+     * Actualiza el color de la casilla
+     * del grid del scrambler
+     */
+    fun updateColorOfScramblerBox(index : Int, color : Int)
+    {
+        val button = findViewById<Button>(scramblerButtons[index])
         button.setBackgroundColor(color)
     }
 

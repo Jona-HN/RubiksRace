@@ -1,27 +1,12 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.controller
 
+import android.widget.Button
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.MainActivity
 import com.uabc.computacion.jonathan1168659.rubiksrace.model.RubiksRaceGameModel
 
 class RubiksRaceGameController(val view : MainActivity, val playersGridController: PlayersGridController)
 {
     private val model = RubiksRaceGameModel(this)
-
-    /**
-     * Indica al modelo que genere una nueva combinación
-     */
-    fun generateNewCombination()
-    {
-        model.generateNewCombination()
-    }
-
-    /**
-     * Regresa a la vista el grid generado
-     */
-    fun getCombination() : IntArray
-    {
-        return model.getCombination()
-    }
 
     /**
      * Pregunta al modelo si el jugador ganó
@@ -40,5 +25,24 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
         }
 
         return model.playerWon
+    }
+
+
+    /**
+     * Actualiza la vista del
+     * grid del scrambler
+     */
+    fun updateScramblerGridView()
+    {
+        model.generateNewCombination()
+        val scramblerGrid = model.getCombination()
+        /* testing */
+        println("Generando nueva combinación (scramble)")
+        /* testing */
+
+        for ((i, color) in scramblerGrid.withIndex())
+        {
+            view.updateColorOfScramblerBox(i, color)
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.data
 
-import android.graphics.Color
 import kotlin.random.Random
 
 /**

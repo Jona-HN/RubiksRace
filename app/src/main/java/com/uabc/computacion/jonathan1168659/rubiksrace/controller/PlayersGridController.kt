@@ -10,21 +10,7 @@ class PlayersGridController(private val view: MainActivity)
     private var firstBoxCoords = Point(-1, -1)
     private var secondBoxCoords = Point(-1, -1)
 
-    /**
-     * Indica al modelo que genere un nuevo grid
-     */
-    fun generateNewGrid()
-    {
-        model.generateNewGrid()
-    }
-
-    /**
-     * Regresa a la vista el grid generado
-     */
-    fun getPlayersGrid() : Array<IntArray>
-    {
-        return model.grid
-    }
+    val NO_OF_ROWS_N_COLS = 5
 
     /**
      * Guarda las coordenadas (índices)
@@ -48,8 +34,8 @@ class PlayersGridController(private val view: MainActivity)
 
             if (validMove)
             {
-                view.updateBoxColor(firstBoxCoords, model.getBoxColor(firstBoxCoords))
-                view.updateBoxColor(secondBoxCoords, model.getBoxColor(secondBoxCoords))
+                view.updateColorOfPlayersGridBox(firstBoxCoords, model.getBoxColor(firstBoxCoords))
+                view.updateColorOfPlayersGridBox(secondBoxCoords, model.getBoxColor(secondBoxCoords))
             }
             else
             {
@@ -68,5 +54,27 @@ class PlayersGridController(private val view: MainActivity)
     fun getCombination() : IntArray
     {
         return model.getCombination()
+    }
+
+    /**
+     * Actualiza el grid del jugador en la vista
+     */
+    fun updatePlayersGridView()
+    {
+        model.generateNewGrid()
+        val playersGrid = model.grid
+        /* testing */
+        println("Generando un nuevo grid del jugador")
+        /* testing */
+
+        var nextColor : Int
+        for (row in 0 until NO_OF_ROWS_N_COLS)
+        {
+            for (col in 0 until NO_OF_ROWS_N_COLS)
+            {
+                nextColor = playersGrid[row][col]
+                view.updateColorOfPlayersGridBox(Point(row, col), nextColor)
+            }
+        }
     }
 }
