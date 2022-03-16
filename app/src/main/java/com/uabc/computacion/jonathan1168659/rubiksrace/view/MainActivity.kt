@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity()
         val newGridButton = findViewById<Button>(R.id.buttonStart)
         newGridButton.setOnClickListener{
             updateGrids(it)
+            newGridButton.text = "Restart"
         }
     }
 
