@@ -10,8 +10,7 @@ class ScramblerModel
 {
 	private var NO_OF_DICES = 9;
 	private val dices = Array(NO_OF_DICES) { Dice() }
-	var combination = IntArray(NO_OF_DICES)
-		private set
+	val combination = IntArray(NO_OF_DICES)
 
 	/**
 	 * Genera una nueva combinación con la condición
