@@ -9,6 +9,8 @@ class RubiksRaceGameModel
 		private set
 	var totalTime by Delegates.notNull<Long>()
 		private set
+	var gameNumber = 0
+		private set
 
 	/**
 	 * Verifica si el jugador ganó (es decir, que la
@@ -47,6 +49,14 @@ class RubiksRaceGameModel
 	}
 
 	/**
+	 * Reinicia el valor del temporizador
+	 */
+	fun resetTimer()
+	{
+		totalTime = 0
+	}
+
+	/**
 	 * Toma el tiempo en el que parar
 	 * el temporizador, y calcula la
 	 * diferencia con el tiempo inicial
@@ -55,5 +65,14 @@ class RubiksRaceGameModel
 	{
 		val currentTime = System.currentTimeMillis()
 		totalTime = (currentTime - totalTime) / 1000
+	}
+
+	/**
+	 * Incrementa el número
+	 * del juego
+	 */
+	fun incrementGameNumber()
+	{
+		gameNumber++
 	}
 }
