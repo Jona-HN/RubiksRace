@@ -15,6 +15,9 @@ class PlayersGridModel
     var grid = Array (5) { IntArray(NO_OF_ROWS_N_COLS) }
         private set
     private lateinit var blackBoxIndices : Point
+    // Cantidad de movimientos realizados
+    var numOfMoves = 0
+        private set
 
     /**
      * Genera un nuevo grid de colores de forma aleatoria
@@ -31,6 +34,9 @@ class PlayersGridModel
         var nextColorIndex : Int
         var nextColorReachedMaxRepetitions : Boolean
         var blackBoxAppeared = false
+
+        // Se reinicia la cantidad de movimientos
+        numOfMoves = 0
 
         for (row in 0 until NO_OF_ROWS_N_COLS)
         {
@@ -84,6 +90,8 @@ class PlayersGridModel
             grid[secondBoxIndices.x][secondBoxIndices.y] = firstBoxColor
             grid[firstBoxIndices.x][firstBoxIndices.y] = Color.BLACK
             blackBoxIndices = Point(firstBoxIndices)
+
+            numOfMoves++
 
             return true
         }
