@@ -28,4 +28,12 @@
     <string name="button25Coords">4 4</string>
     <string name="buttonNewGrid">Start</string>
     <string name="buttonCheckCombination">Check</string>
+    <string name="columnGame">Juego</string>
+    <string name="columnTime">Tiempo</string>
+    <string name="columnMoves">Movimientos</string>
+    <string name="columnCombination">Combinación</string>
+    <string name="colGameWidth">60dp</string>
+    <string name="colTimeWidth">60dp</string>
+    <string name="colMovesWidth">110dp</string>
+    <string name="colCombWidth">150dp</string>
 </resources>
