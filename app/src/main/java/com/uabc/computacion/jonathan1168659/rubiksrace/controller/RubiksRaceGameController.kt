@@ -1,5 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.controller
 
+import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.MainActivity
 import com.uabc.computacion.jonathan1168659.rubiksrace.model.RubiksRaceGameModel
 
@@ -21,6 +22,8 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
         {
             model.stopTimer()
             view.showMessage("¡Felicidades! Has ganado y has tardado ${model.totalTime} segundos")
+            model.resetTimer()
+            model.incrementGameNumber()
         }
         else
         {
@@ -53,5 +56,15 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
     fun startTimer()
     {
         model.startTimer()
+    }
+
+    /**
+     * Genera una entrada para el scoreboard
+     * y la regresa
+     */
+    fun generateGameScoreboardEntry() : ScoreboardEntry
+    {
+        return ScoreboardEntry(model.gameNumber, model.totalTime,
+            playersGridController.getNumOfMoves(), model.getCombination())
     }
 }
