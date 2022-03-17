@@ -72,4 +72,12 @@ class PlayersGridController(private val view: MainActivity)
             }
         }
     }
+
+    /**
+     * Regresa el número de movimientos
+     */
+    fun getNumOfMoves() : Int
+    {
+        return model.numOfMoves
+    }
 }
