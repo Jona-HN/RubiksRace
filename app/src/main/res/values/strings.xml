@@ -32,8 +32,4 @@
     <string name="columnTime">Tiempo</string>
     <string name="columnMoves">Movimientos</string>
     <string name="columnCombination">Combinación</string>
-    <string name="colGameWidth">60dp</string>
-    <string name="colTimeWidth">60dp</string>
-    <string name="colMovesWidth">110dp</string>
-    <string name="colCombWidth">150dp</string>
 </resources>
