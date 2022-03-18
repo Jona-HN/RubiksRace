@@ -1,5 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.view
 
+import android.content.Intent
 import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGameController
+// Serialization API
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
 
 class MainActivity : AppCompatActivity()
 {
@@ -122,10 +126,22 @@ class MainActivity : AppCompatActivity()
 
     /**
      * Le indica al controlador que verifique
-     * la combinación del jugador
+     * la combinación del jugador.
+     * Si el jugador ganó, lo manda a la
+     * vista del scoreboard
+     * (es decir, inicia ScoreboardActivity y
+     * le manda un scoreboardEntry en formato JSON,
+     * todo esto por medio de un Intent)
      */
     private fun checkPlayerCombination()
     {
-        rubiksRaceGameController.checkIfPlayerWon()
+        if (rubiksRaceGameController.checkIfPlayerWon())
+        {
+            val intentScoreboard = Intent(this, ScoreboardActivity::class.java)
+            val scoreboardEntryJson = Json.encodeToString(rubiksRaceGameController.generateGameScoreboardEntry())
+
+            intentScoreboard.putExtra("newEntry", scoreboardEntryJson)
+            startActivity(intentScoreboard)
+        }
     }
 }
