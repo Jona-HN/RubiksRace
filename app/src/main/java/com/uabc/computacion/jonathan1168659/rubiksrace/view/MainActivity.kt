@@ -144,4 +144,15 @@ class MainActivity : AppCompatActivity()
             startActivity(intentScoreboard)
         }
     }
+
+    /* Para testear el bitmap */
+    fun bitmapTesterButtonOnClick(view : View)
+    {
+        val intentScoreboard = Intent(this, ScoreboardActivity::class.java)
+        // Se genera un entry custom
+        val scoreboardEntryJson = Json.encodeToString(rubiksRaceGameController.scoreboardEntryTest())
+
+        intentScoreboard.putExtra("entryTest", scoreboardEntryJson)
+        startActivity(intentScoreboard)
+    }
 }

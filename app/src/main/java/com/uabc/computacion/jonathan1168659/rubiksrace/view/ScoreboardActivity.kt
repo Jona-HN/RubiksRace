@@ -29,7 +29,7 @@ class ScoreboardActivity : AppCompatActivity()
         rowParams = TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT)
 
         // Se recibe el nuevo registro del scoreboard
-        val scoreboardEntryJson = intent.getStringExtra("newEntry").toString()
+        val scoreboardEntryJson = intent.getStringExtra("entryTest").toString()
         val scoreboardEntry = Json.decodeFromString<ScoreboardEntry>(scoreboardEntryJson)
         controller.onNewEntry(scoreboardEntry)
     }

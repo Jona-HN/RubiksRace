@@ -67,4 +67,10 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
         return ScoreboardEntry(model.gameNumber, model.totalTime,
             playersGridController.getNumOfMoves(), model.getCombination())
     }
+
+    /* Entrada del scoreboard para testear */
+    fun scoreboardEntryTest() : ScoreboardEntry
+    {
+        return ScoreboardEntry(99, 99, 99, model.getCombination())
+    }
 }
