@@ -1,5 +1,7 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.controller
 
+import android.graphics.Bitmap
+import android.widget.ImageView
 import android.widget.TableRow
 import android.widget.TextView
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
@@ -41,19 +43,24 @@ class ScoreboardController(val view : ScoreboardActivity)
         val gameNumberCell = TextView(view)
         val timeCell = TextView(view)
         val movesCell = TextView(view)
-//        val combinationCell : /* por definir */
+        val combinationCell = ImageView(view)
 
         // Asignación de valores
         gameNumberCell.text = scoreboardEntry.gameNumber.toString()
         timeCell.text = scoreboardEntry.time.toString()
         movesCell.text = scoreboardEntry.moves.toString()
-//        combinationCell =  /* magia pokemón */;
+        combinationCell.setImageBitmap(Bitmap.createBitmap(
+            scoreboardEntry.combination,
+            scoreboardEntry.combination.size,
+            scoreboardEntry.combination.size,
+            Bitmap.Config.ARGB_8888
+        ))
 
         // Se agregan los componentes a la fila
         entry.addView(gameNumberCell)
         entry.addView(timeCell)
         entry.addView(movesCell)
-//        entry.addView(combinationCell)
+        entry.addView(combinationCell)
 
         // Se agrega la fila a la tabla
         view.scoreboardTableLayout.addView(entry, view.rowParams)
