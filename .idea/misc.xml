@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/msjon/Dev/AndroidStudioProjects/RubiksRace/app/src/main/res/drawable/custom_button.xml" value="0.2455" />
-        <entry key="..\:/Users/msjon/Dev/AndroidStudioProjects/RubiksRace/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/msjon/Dev/AndroidStudioProjects/RubiksRace/app/src/main/res/layout/activity_main.xml" value="0.6" />
         <entry key="..\:/Users/msjon/Dev/AndroidStudioProjects/RubiksRace/app/src/main/res/layout/activity_scoreboard.xml" value="0.2" />
+        <entry key="..\:/Users/msjon/Dev/AndroidStudioProjects/RubiksRace/app/src/main/res/layout/scoreboard_entry_row.xml" value="0.264" />
       </map>
     </option>
   </component>
