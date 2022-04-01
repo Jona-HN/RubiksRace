@@ -2,11 +2,13 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TableLayout
-import android.widget.TableRow
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.ScoreboardController
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
+import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityScoreboardBinding
+import com.uabc.computacion.jonathan1168659.rubiksrace.view.recyclerview.RecyclerAdapter
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
@@ -14,19 +16,19 @@ class ScoreboardActivity : AppCompatActivity()
 {
     // Controlador
     private val controller = ScoreboardController(this)
-    // Referencia a la tabla en la vista
-    lateinit var scoreboardTableLayout : TableLayout
-    // Parámetros para las nuevas entradas de la tabla
-    lateinit var rowParams : TableRow.LayoutParams
+    // Binding
+    private lateinit var binding : ActivityScoreboardBinding
+    // Recycler view y su adaptador
+    lateinit var recyclerView : RecyclerView
+    lateinit var adapter : RecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scoreboard)
 
-        scoreboardTableLayout = findViewById(R.id.scoreboardTable)
-        // TODO: comprobar que sirve
-        rowParams = TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT)
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Se recibe el nuevo registro del scoreboard
         val scoreboardEntryJson = intent.getStringExtra("newEntry").toString()
