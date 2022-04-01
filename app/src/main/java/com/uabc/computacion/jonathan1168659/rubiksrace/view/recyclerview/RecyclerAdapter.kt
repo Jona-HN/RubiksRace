@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
-import com.uabc.computacion.jonathan1168659.rubiksrace.data.Scoreboard
+import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ScoreboardEntryRowBinding
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.EntryHolder>()
+class RecyclerAdapter(private val scoreboardEntries : ArrayList<ScoreboardEntry>) : RecyclerView.Adapter<RecyclerAdapter.EntryHolder>()
 {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -22,16 +22,16 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.EntryHolder>()
 
     override fun onBindViewHolder(holder : EntryHolder, position : Int)
     {
-        val entry = Scoreboard.entries[position]
+        val entry = scoreboardEntries[position]
 
         holder.game.text = entry.gameNumber.toString()
         holder.time.text = entry.time.toString()
         holder.moves.text = entry.moves.toString()
     }
 
-    override fun getItemCount() = Scoreboard.entries.size
+    override fun getItemCount() = scoreboardEntries.size
 
-    class EntryHolder(v : View) : RecyclerView.ViewHolder(v)
+    inner class EntryHolder(v : View) : RecyclerView.ViewHolder(v)
     {
         private val binding = ScoreboardEntryRowBinding.inflate(LayoutInflater.from(v.context))
         val game = binding.textViewGame
@@ -49,7 +49,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.EntryHolder>()
 
         private fun removeAt(position : Int)
         {
-            Scoreboard.entries.removeAt(position)
+            scoreboardEntries.removeAt(position)
         }
     }
 }
