@@ -25,4 +25,10 @@ class ScoreboardModel
     {
         Scoreboard.entries.add(entry)
     }
+
+    /**
+     * Regresa las entradas
+     * del scoreboard
+     */
+    fun getEntries() = Scoreboard.entries
 }
