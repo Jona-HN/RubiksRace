@@ -7,6 +7,8 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.model.RubiksRaceGameModel
 class RubiksRaceGameController(val view : MainActivity, val playersGridController: PlayersGridController)
 {
     private val model = RubiksRaceGameModel()
+    lateinit var lastScoreboardEntry : ScoreboardEntry
+        private set
 
     /**
      * Pregunta al modelo si el jugador ganó,
@@ -22,8 +24,7 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
         {
             model.stopTimer()
             view.showMessage("¡Felicidades! Has ganado y has tardado ${model.totalTime} segundos")
-            model.resetTimer()
-            model.incrementGameNumber()
+            generateGameScoreboardEntry()
         }
         else
         {
@@ -60,12 +61,15 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
 
     /**
      * Genera una entrada para el scoreboard
-     * y la regresa
      */
-    fun generateGameScoreboardEntry() : ScoreboardEntry
+    private fun generateGameScoreboardEntry()
     {
-        return ScoreboardEntry(model.gameNumber, model.totalTime,
+        model.incrementGameNumber()
+        val newEntry = ScoreboardEntry(model.gameNumber, model.totalTime,
             playersGridController.getNumOfMoves(), model.getCombination())
+        model.resetTimer()
+
+        lastScoreboardEntry = newEntry
     }
 
     /* Entrada del scoreboard para testear */
