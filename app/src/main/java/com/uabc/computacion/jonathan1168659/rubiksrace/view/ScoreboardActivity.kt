@@ -25,9 +25,9 @@ class ScoreboardActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scoreboard)
-
         binding = ActivityScoreboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -35,5 +35,16 @@ class ScoreboardActivity : AppCompatActivity()
         val scoreboardEntryJson = intent.getStringExtra("newEntry").toString()
         val scoreboardEntry = Json.decodeFromString<ScoreboardEntry>(scoreboardEntryJson)
         controller.onNewEntry(scoreboardEntry)
+    }
+
+    /**
+     * Recibe el set actualizado de
+     * información para actualizar el
+     * RecyclerView
+     */
+    fun updateRecyclerViewData(entries : ArrayList<ScoreboardEntry>)
+    {
+        adapter = RecyclerAdapter(entries)
+        recyclerView.adapter = adapter
     }
 }
