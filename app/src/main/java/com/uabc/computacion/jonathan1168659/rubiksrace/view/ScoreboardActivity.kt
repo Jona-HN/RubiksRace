@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.ScoreboardController
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityScoreboardBinding
