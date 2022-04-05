@@ -35,8 +35,7 @@ class MainActivity : AppCompatActivity()
 
         val checkButton = findViewById<Button>(R.id.buttonCheckCombination)
         checkButton.setOnClickListener{
-            checkPlayerCombination()
-            checkButton.isEnabled = false
+            checkButton.isEnabled = !checkPlayerCombination()
         }
 
         val newGridButton = findViewById<Button>(R.id.buttonStart)
@@ -134,7 +133,7 @@ class MainActivity : AppCompatActivity()
      * le manda un scoreboardEntry en formato JSON,
      * todo esto por medio de un Intent)
      */
-    private fun checkPlayerCombination()
+    private fun checkPlayerCombination() : Boolean
     {
         if (rubiksRaceGameController.checkIfPlayerWon())
         {
@@ -143,6 +142,9 @@ class MainActivity : AppCompatActivity()
 
             intentScoreboard.putExtra("newEntry", scoreboardEntryJson)
             startActivity(intentScoreboard)
+            return true
         }
+
+        return false
     }
 }
