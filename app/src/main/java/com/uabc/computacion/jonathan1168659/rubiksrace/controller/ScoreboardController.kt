@@ -20,6 +20,7 @@ class ScoreboardController(val view : ScoreboardActivity)
     fun onNewEntry(entry : ScoreboardEntry)
     {
         model.addEntry(entry)
+        println("Número de entradas: ${model.getEntries().size}")
         view.updateRecyclerViewData(model.getEntries())
     }
 }
