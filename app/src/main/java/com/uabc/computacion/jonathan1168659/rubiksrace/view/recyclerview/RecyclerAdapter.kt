@@ -3,6 +3,7 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.view.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.RecyclerView
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
@@ -24,32 +25,51 @@ class RecyclerAdapter(private val scoreboardEntries : ArrayList<ScoreboardEntry>
     {
         val entry = scoreboardEntries[position]
 
-        holder.game.text = entry.gameNumber.toString()
-        holder.time.text = entry.time.toString()
-        holder.moves.text = entry.moves.toString()
+        holder.render(entry)
     }
 
     override fun getItemCount() = scoreboardEntries.size
 
-    inner class EntryHolder(v : View) : RecyclerView.ViewHolder(v)
+    inner class EntryHolder(view : View) : RecyclerView.ViewHolder(view)
     {
-        private val binding = ScoreboardEntryRowBinding.inflate(LayoutInflater.from(v.context))
-        val game = binding.textViewGame
-        val time = binding.textViewTime
-        val moves = binding.textViewMoves
-        val combination = binding.takeIf { itemId.toString().contains("Combination") }
-        private val delete = binding.buttonDelete
+        private val binding = ScoreboardEntryRowBinding.bind(view)
+
+        val combination = arrayOf(
+            binding.buttonCombination1,
+            binding.buttonCombination2,
+            binding.buttonCombination3,
+            binding.buttonCombination4,
+            binding.buttonCombination5,
+            binding.buttonCombination6,
+            binding.buttonCombination7,
+            binding.buttonCombination8,
+            binding.buttonCombination9
+        )
 
         init
         {
-            delete.setOnClickListener {
+            binding.buttonDelete.setOnClickListener {
                 removeAt(adapterPosition)
+            }
+        }
+
+        fun render(entry: ScoreboardEntry)
+        {
+            binding.textViewGame.text = entry.gameNumber.toString()
+            binding.textViewTime.text = entry.time.toString()
+            binding.textViewMoves.text = entry.moves.toString()
+
+            for ((index, button) in combination.withIndex())
+            {
+                button.setBackgroundColor(entry.combination[index])
             }
         }
 
         private fun removeAt(position : Int)
         {
             scoreboardEntries.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, itemCount)
         }
     }
 }
