@@ -6,42 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler9"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="36dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonGrid5"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler6"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginEnd="44dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonScrambler9"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler3"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="44dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="186dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button4Coords"
         android:text="@string/empty"
@@ -50,13 +54,14 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid3"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid16"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button16Coords"
         android:text="@string/empty"
@@ -65,12 +70,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid11" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid12"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button12Coords"
         android:text="@string/empty"
@@ -79,13 +85,14 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid11"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid7" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid6"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="11dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button6Coords"
         android:text="@string/empty"
@@ -94,12 +101,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid1" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid20"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button20Coords"
         android:text="@string/empty"
@@ -108,12 +116,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid19"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid15" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid7"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="11dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button7Coords"
         android:text="@string/empty"
@@ -122,12 +131,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid6"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid2" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid22"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="211dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button22Coords"
         android:text="@string/empty"
@@ -136,12 +146,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid21"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid17" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid10"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="11dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button10Coords"
         android:text="@string/empty"
@@ -150,13 +161,14 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid9"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid5" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid11"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button11Coords"
         android:text="@string/empty"
@@ -165,12 +177,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid6" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid8"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="11dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button8Coords"
         android:text="@string/empty"
@@ -179,13 +192,14 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid7"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid3" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid21"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="211dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button21Coords"
         android:text="@string/empty"
@@ -194,12 +208,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid16" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid17"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button17Coords"
         android:text="@string/empty"
@@ -208,13 +223,14 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid16"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid12" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="186dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button2Coords"
         android:text="@string/empty"
@@ -223,12 +239,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid15"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button15Coords"
         android:text="@string/empty"
@@ -237,7 +254,7 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid14"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid10" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -245,6 +262,7 @@
         android:layout_marginTop="186dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button1Coords"
         android:text="@string/empty"
@@ -253,12 +271,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid25"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="211dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button25Coords"
         android:text="@string/empty"
@@ -267,12 +286,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid24"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid20" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid23"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="211dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button23Coords"
         android:text="@string/empty"
@@ -281,12 +301,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid22"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid18" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid19"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button19Coords"
         android:text="@string/empty"
@@ -295,12 +316,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid18"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid14" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid24"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="211dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button24Coords"
         android:text="@string/empty"
@@ -309,12 +331,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid23"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid19" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid13"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button13Coords"
         android:text="@string/empty"
@@ -323,13 +346,14 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid12"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid8" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="186dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button5Coords"
         android:text="@string/empty"
@@ -338,12 +362,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid4"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid14"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button14Coords"
         android:text="@string/empty"
@@ -352,12 +377,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid13"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid9" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid18"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button18Coords"
         android:text="@string/empty"
@@ -366,12 +392,13 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid17"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid13" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid9"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="11dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button9Coords"
         android:text="@string/empty"
@@ -380,13 +407,14 @@
         app:layout_constraintStart_toEndOf="@+id/buttonGrid8"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid4" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGrid3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="186dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/black_border"
         android:onClick="onBoxClick"
         android:tag="@string/button3Coords"
         android:text="@string/empty"
@@ -407,43 +435,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler1"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginStart="236dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonScrambler4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler7"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginStart="236dp"
         android:layout_marginBottom="36dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonGrid4"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler4"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginStart="236dp"
         android:layout_marginBottom="1dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonScrambler7"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler2"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonScrambler5"
         app:layout_constraintEnd_toStartOf="@+id/buttonScrambler3"
@@ -452,22 +484,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler8"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="36dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonGrid5"
         app:layout_constraintEnd_toStartOf="@+id/buttonScrambler9"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toEndOf="@+id/buttonScrambler7" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonScrambler5"
         android:layout_width="34dp"
         android:layout_height="43dp"
+        android:background="@drawable/black_border"
         android:text="@string/empty"
         app:layout_constraintBottom_toTopOf="@+id/buttonScrambler8"
         app:layout_constraintEnd_toStartOf="@+id/buttonScrambler6"
@@ -484,5 +518,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonGrid23" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchMode"
+        android:layout_width="152dp"
+        android:layout_height="34dp"
+        android:text="@string/switchMode"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGrid1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonScrambler7"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStart"
+        app:layout_constraintVertical_bias="0.468" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
