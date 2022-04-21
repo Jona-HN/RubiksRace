@@ -162,6 +162,7 @@ class MainActivity : AppCompatActivity()
             val intentScoreboard = Intent(this, ScoreboardActivity::class.java)
             val scoreboardEntryJson = Json.encodeToString(rubiksRaceGameController.lastScoreboardEntry)
 
+            intentScoreboard.putExtra("colorBlindMode", colorBlindMode)
             intentScoreboard.putExtra("newEntry", scoreboardEntryJson)
             startActivity(intentScoreboard)
             return true
