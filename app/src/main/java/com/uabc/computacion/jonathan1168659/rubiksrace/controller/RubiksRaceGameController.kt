@@ -42,6 +42,15 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
     fun updateScramblerGridView()
     {
         model.generateNewCombination()
+        refreshGridInView()
+    }
+
+    /**
+     * Actualiza el color de las casillas
+     * del scrambler
+     */
+    fun refreshGridInView()
+    {
         val scramblerGrid = model.getCombination()
 
         for ((i, color) in scramblerGrid.withIndex())
