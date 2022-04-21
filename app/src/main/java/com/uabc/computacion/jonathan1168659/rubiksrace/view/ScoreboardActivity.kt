@@ -20,6 +20,8 @@ class ScoreboardActivity : AppCompatActivity()
     // Recycler view y su adaptador
     lateinit var recyclerView : RecyclerView
     lateinit var adapter : RecyclerAdapter
+    // Bandera del modo daltónico
+    private var colorBlindMode = false
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -29,6 +31,8 @@ class ScoreboardActivity : AppCompatActivity()
 
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        colorBlindMode = intent.getBooleanExtra("colorBlindMode", false)
 
         // Se recibe el nuevo registro del scoreboard
         val scoreboardEntryJson = intent.getStringExtra("entryTest").toString()
@@ -43,7 +47,7 @@ class ScoreboardActivity : AppCompatActivity()
      */
     fun updateRecyclerViewData(entries : ArrayList<ScoreboardEntry>)
     {
-        adapter = RecyclerAdapter(entries)
+        adapter = RecyclerAdapter(entries, colorBlindMode)
         recyclerView.adapter = adapter
     }
 }

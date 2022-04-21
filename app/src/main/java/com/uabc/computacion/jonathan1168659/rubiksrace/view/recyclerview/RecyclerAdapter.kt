@@ -7,8 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ScoreboardEntryRowBinding
+import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
+import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
 
-class RecyclerAdapter(private val scoreboardEntries : ArrayList<ScoreboardEntry>) : RecyclerView.Adapter<RecyclerAdapter.EntryHolder>()
+class RecyclerAdapter(
+    private val scoreboardEntries : ArrayList<ScoreboardEntry>,
+    private val colorBlindMode : Boolean
+) : RecyclerView.Adapter<RecyclerAdapter.EntryHolder>()
 {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -57,10 +62,17 @@ class RecyclerAdapter(private val scoreboardEntries : ArrayList<ScoreboardEntry>
             binding.textViewGame.text = entry.gameNumber.toString()
             binding.textViewTime.text = entry.time.toString()
             binding.textViewMoves.text = entry.moves.toString()
+            var nextColor : Int
 
             for ((index, button) in combination.withIndex())
             {
-                button.setBackgroundColor(entry.combination[index])
+                nextColor = entry.combination[index]
+                changeBackgroundColor(button, nextColor)
+
+                if (colorBlindMode)
+                {
+                    changeImage(button, nextColor)
+                }
             }
         }
 

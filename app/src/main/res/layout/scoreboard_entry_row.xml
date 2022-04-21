@@ -26,64 +26,76 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="time" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination6"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintEnd_toEndOf="@+id/buttonCombination3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/buttonCombination3"
         app:layout_constraintTop_toBottomOf="@+id/buttonCombination3" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination1"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginStart="236dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination5"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintEnd_toEndOf="@+id/buttonCombination2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/buttonCombination2"
         app:layout_constraintTop_toBottomOf="@+id/buttonCombination2" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination4"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintEnd_toEndOf="@+id/buttonCombination1"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/buttonCombination1"
         app:layout_constraintTop_toBottomOf="@+id/buttonCombination1" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination3"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/button_default"
         android:text="@string/empty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.114"
         app:layout_constraintStart_toEndOf="@+id/buttonCombination2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="false" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination7"
         android:layout_width="35dp"
         android:layout_height="43dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonCombination8"
@@ -92,10 +104,12 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonCombination4"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination9"
         android:layout_width="35dp"
         android:layout_height="43dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,20 +118,24 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonCombination6"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination2"
         android:layout_width="34dp"
         android:layout_height="43dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintStart_toEndOf="@+id/buttonCombination1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonCombination8"
         android:layout_width="35dp"
         android:layout_height="43dp"
+        android:background="@drawable/button_default"
+        android:clickable="false"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonCombination5"

@@ -32,4 +32,5 @@
     <string name="columnTime">Tiempo</string>
     <string name="columnMoves">Movimientos</string>
     <string name="columnCombination">Combinación</string>
+    <string name="switchMode">Modo daltónico</string>
 </resources>
