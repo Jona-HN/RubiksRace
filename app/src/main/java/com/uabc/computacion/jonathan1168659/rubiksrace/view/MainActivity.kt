@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity()
     private lateinit var scramblerButtons : Array<ImageButton>
     private lateinit var bind : ActivityMainBinding
     private var colorBlindMode = false
+    private var buttonHasBeenPressed = false
+    private lateinit var clickedButton : ImageButton
 
     // Controladores
     private val playersGridController = PlayersGridController(this)
@@ -89,6 +91,19 @@ class MainActivity : AppCompatActivity()
      */
     fun onBoxClick(view : View)
     {
+        // Para guardar el estado del botón presionado
+        if (!buttonHasBeenPressed)
+        {
+            view.isSelected = true
+            clickedButton = view as ImageButton
+            buttonHasBeenPressed = true
+        }
+        else
+        {
+            clickedButton.isSelected = false
+            buttonHasBeenPressed = false
+        }
+
         val clickedBoxCoordsList = view.tag.toString().split(" ")
         val x = Integer.valueOf(clickedBoxCoordsList[0])
         val y = Integer.valueOf(clickedBoxCoordsList[1])
@@ -111,9 +126,9 @@ class MainActivity : AppCompatActivity()
      * Muestra un Toast con un mensaje para
      * indicarle el resultado de una acción al usuario
      */
-    fun showMessage(mensaje : String)
+    fun showMessage(msg : String, duration : Int)
     {
-        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, msg, duration).show()
     }
 
     /**
