@@ -1,5 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.controller
 
+import android.widget.Toast.LENGTH_SHORT
 import android.graphics.Point
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.MainActivity
 import com.uabc.computacion.jonathan1168659.rubiksrace.model.PlayersGridModel
@@ -37,7 +38,7 @@ class PlayersGridController(private val view: MainActivity)
             }
             else
             {
-                view.showMessage("Movimiento inválido")
+                view.showMessage("Movimiento inválido", LENGTH_SHORT)
             }
 
             // Se reinician los valores
