@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity()
     private var colorBlindMode = false
     private var buttonHasBeenPressed = false
     private lateinit var clickedButton : ImageButton
+    private var playedAtLeastOnce = false
 
     // Controladores
     private val playersGridController = PlayersGridController(this)
@@ -51,6 +52,16 @@ class MainActivity : AppCompatActivity()
             newGridButton.text = "Restart"
             rubiksRaceGameController.startTimer()
             checkButton.isEnabled = true
+
+            if (!playedAtLeastOnce)
+            {
+                playersGridButtons.forEach { row ->
+                    row.forEach { btn ->
+                        btn.setOnClickListener { onBoxClick(btn) }
+                    }
+                }
+                playedAtLeastOnce = true
+            }
         }
 
         bind.switchMode.setOnCheckedChangeListener { _, isChecked ->
