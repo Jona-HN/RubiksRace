@@ -11,7 +11,7 @@ class ButtonBackgroundHandler
         fun changeBackgroundColor(button : ImageButton, color : Int)
         {
             button.setBackgroundColor(color)
-            button.setImageResource(R.drawable.black_border)
+            button.setImageResource(R.drawable.button_selector)
         }
 
         fun changeImage(button : ImageButton, color : Int)
