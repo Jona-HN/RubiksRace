@@ -49,6 +49,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "androidx.activity:activity-ktx:$rootProject.activityVersion"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
     // Serialization API
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2'
 
