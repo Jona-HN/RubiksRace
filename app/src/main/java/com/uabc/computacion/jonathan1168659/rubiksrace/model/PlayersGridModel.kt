@@ -103,7 +103,7 @@ class PlayersGridModel
      */
     private fun boxIsAdjacentToBlackBox(boxIndices : Point) : Boolean
     {
-        val adjacentBoxesIndices = ArrayList<Point>(4);
+        val adjacentBoxesIndices = ArrayList<Point>(4)
 
         // Casilla superior
         val upperRow : Int = blackBoxIndices.x - 1
@@ -147,7 +147,7 @@ class PlayersGridModel
         {
             for (col in 1 until 4)
             {
-                combination[i++] = grid[row][col];
+                combination[i++] = grid[row][col]
             }
         }
 

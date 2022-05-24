@@ -8,7 +8,7 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
  */
 class ScramblerModel
 {
-	private var NO_OF_DICES = 9;
+	private var NO_OF_DICES = 9
 	private val dices = Array(NO_OF_DICES) { Dice() }
 	val combination = IntArray(NO_OF_DICES)
 
