@@ -13,6 +13,7 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGame
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityMainBinding
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
+import kotlinx.coroutines.*
 // Serialization API
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.encodeToString
@@ -47,8 +48,8 @@ class MainActivity : AppCompatActivity()
         }
 
         val newGridButton = bind.buttonStart
-        newGridButton.setOnClickListener{
-            updateGrids(it)
+        newGridButton.setOnClickListener{view ->
+            runBlocking { launch { updateGrids(view) } }
             newGridButton.text = "Restart"
             rubiksRaceGameController.startTimer()
             checkButton.isEnabled = true
@@ -66,8 +67,12 @@ class MainActivity : AppCompatActivity()
 
         bind.switchMode.setOnCheckedChangeListener { _, isChecked ->
             colorBlindMode = isChecked
-            playersGridController.refreshGridInView()
-            rubiksRaceGameController.refreshGridInView()
+            runBlocking {
+                launch {
+                    playersGridController.refreshGridInView()
+                    rubiksRaceGameController.refreshGridInView()
+                }
+            }
         }
     }
 
@@ -127,7 +132,7 @@ class MainActivity : AppCompatActivity()
      * Manda a llamar a los métodos encargados
      * de actualizar sus vistas correspondientes
      */
-    private fun updateGrids(view : View)
+    private suspend fun updateGrids(view : View) = withContext(Dispatchers.IO)
     {
         playersGridController.updatePlayersGridView()
         rubiksRaceGameController.updateScramblerGridView()
@@ -148,12 +153,14 @@ class MainActivity : AppCompatActivity()
      */
     fun updateColorOfPlayersGridBox(boxCoords : Point, color : Int)
     {
-        val button = playersGridButtons[boxCoords.x][boxCoords.y]
-        changeBackgroundColor(button, color)
+        runOnUiThread {
+            val button = playersGridButtons[boxCoords.x][boxCoords.y]
+            changeBackgroundColor(button, color)
 
-        if (colorBlindMode)
-        {
-            changeImage(button, color)
+            if (colorBlindMode)
+            {
+                changeImage(button, color)
+            }
         }
     }
 
@@ -163,12 +170,14 @@ class MainActivity : AppCompatActivity()
      */
     fun updateColorOfScramblerBox(index : Int, color : Int)
     {
-        val button = scramblerButtons[index]
-        changeBackgroundColor(button, color)
+        runOnUiThread {
+            val button = scramblerButtons[index]
+            changeBackgroundColor(button, color)
 
-        if (colorBlindMode)
-        {
-            changeImage(button, color)
+            if (colorBlindMode)
+            {
+                changeImage(button, color)
+            }
         }
     }
 
