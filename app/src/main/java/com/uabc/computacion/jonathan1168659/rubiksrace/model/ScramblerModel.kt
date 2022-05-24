@@ -17,7 +17,7 @@ class ScramblerModel
 	 * de que cada color no puede repetirse más
 	 * de 4 veces
 	 */
-	fun scramble()
+	suspend fun scramble()
 	{
 		val colors = DiceColor.values()
 		val repetitions = IntArray(colors.size)

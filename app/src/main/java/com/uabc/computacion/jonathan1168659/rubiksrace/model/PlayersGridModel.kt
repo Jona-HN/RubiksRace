@@ -26,7 +26,7 @@ class PlayersGridModel
      * 2. Debe haber una casilla vacía (indicada con el color negro),
      *    la cual aparece en una posición aleatoria
      */
-    fun generateNewGrid()
+    suspend fun generateNewGrid()
     {
         val colors = DiceColor.values()
         val repetitions = IntArray(colors.size)
