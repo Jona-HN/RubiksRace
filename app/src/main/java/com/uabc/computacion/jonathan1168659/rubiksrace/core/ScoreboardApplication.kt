@@ -1,6 +1,7 @@
-package com.uabc.computacion.jonathan1168659.rubiksrace.database
+package com.uabc.computacion.jonathan1168659.rubiksrace.core
 
 import android.app.Application
+import com.uabc.computacion.jonathan1168659.rubiksrace.database.*
 import kotlinx.coroutines.*
 
 class ScoreboardApplication : Application()
