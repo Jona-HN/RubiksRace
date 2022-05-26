@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGameController
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityMainBinding
+import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.UserSettings
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
 import kotlinx.coroutines.*
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity()
     private lateinit var playersGridButtons : Array<Array<ImageButton>>
     private lateinit var scramblerButtons : Array<ImageButton>
     private lateinit var bind : ActivityMainBinding
-    private var colorBlindMode = false
     private var buttonHasBeenPressed = false
     private lateinit var clickedButton : ImageButton
     private var playedAtLeastOnce = false
@@ -65,8 +65,17 @@ class MainActivity : AppCompatActivity()
             }
         }
 
+        if (UserSettings.fileNotExist(this)) {
+            UserSettings.createSettingsFile(this)
+        }
+        else
+        {
+            UserSettings.loadSettings(this)
+        }
+        bind.switchMode.isChecked = UserSettings.colorBlindMode
+
         bind.switchMode.setOnCheckedChangeListener { _, isChecked ->
-            colorBlindMode = isChecked
+            UserSettings.saveSettings(this, isChecked)
             runBlocking {
                 launch {
                     playersGridController.refreshGridInView()
@@ -157,7 +166,7 @@ class MainActivity : AppCompatActivity()
             val button = playersGridButtons[boxCoords.x][boxCoords.y]
             changeBackgroundColor(button, color)
 
-            if (colorBlindMode)
+            if (UserSettings.colorBlindMode)
             {
                 changeImage(button, color)
             }
@@ -174,7 +183,7 @@ class MainActivity : AppCompatActivity()
             val button = scramblerButtons[index]
             changeBackgroundColor(button, color)
 
-            if (colorBlindMode)
+            if (UserSettings.colorBlindMode)
             {
                 changeImage(button, color)
             }
@@ -197,7 +206,6 @@ class MainActivity : AppCompatActivity()
             val intentScoreboard = Intent(this, ScoreboardActivity::class.java)
             val scoreboardEntryJson = Json.encodeToString(rubiksRaceGameController.lastScoreboardEntry)
 
-            intentScoreboard.putExtra("colorBlindMode", colorBlindMode)
             intentScoreboard.putExtra("newEntry", scoreboardEntryJson)
             startActivity(intentScoreboard)
             return true
