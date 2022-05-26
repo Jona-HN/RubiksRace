@@ -1,7 +1,8 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.controller
 
 import android.widget.Toast.LENGTH_LONG
-import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
+import com.uabc.computacion.jonathan1168659.rubiksrace.data.Combination
+import com.uabc.computacion.jonathan1168659.rubiksrace.database.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.MainActivity
 import com.uabc.computacion.jonathan1168659.rubiksrace.model.RubiksRaceGameModel
 
@@ -50,6 +51,7 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
      * Actualiza el color de las casillas
      * del scrambler
      */
+    @Suppress("RedundantSuspendModifier")
     suspend fun refreshGridInView()
     {
         val scramblerGrid = model.getCombination()
@@ -76,7 +78,7 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
     {
         model.incrementGameNumber()
         val newEntry = ScoreboardEntry(model.gameNumber, model.totalTime,
-            playersGridController.getNumOfMoves(), model.getCombination())
+            playersGridController.getNumOfMoves(), Combination(model.getCombination()))
         model.resetTimer()
 
         lastScoreboardEntry = newEntry

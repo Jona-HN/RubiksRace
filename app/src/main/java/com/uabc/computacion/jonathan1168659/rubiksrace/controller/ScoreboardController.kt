@@ -1,6 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.controller
 
-import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
+import com.uabc.computacion.jonathan1168659.rubiksrace.database.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.model.ScoreboardModel
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ScoreboardActivity
 
@@ -9,7 +9,7 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.view.ScoreboardActivity
  */
 class ScoreboardController(val view : ScoreboardActivity)
 {
-    private val model = ScoreboardModel()
+//    private val model = ScoreboardModel()
 
     /**
      * Por un lado, le indica al modelo que
@@ -19,7 +19,7 @@ class ScoreboardController(val view : ScoreboardActivity)
      */
     fun onNewEntry(entry : ScoreboardEntry)
     {
-        model.addEntry(entry)
-        view.updateRecyclerViewData(model.getEntries())
+//        model.addEntry(entry)
+//        view.updateRecyclerViewData(model.getEntries())
     }
 }

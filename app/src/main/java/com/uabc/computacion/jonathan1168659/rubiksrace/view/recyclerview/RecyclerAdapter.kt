@@ -3,40 +3,40 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.view.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.*
+import androidx.recyclerview.widget.DiffUtil.*
+import androidx.recyclerview.widget.ListAdapter
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
-import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
+import com.uabc.computacion.jonathan1168659.rubiksrace.database.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ScoreboardEntryRowBinding
+import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.UserSettings
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
+import com.uabc.computacion.jonathan1168659.rubiksrace.view.ScoreboardActivity
 
-class RecyclerAdapter(
-    private val scoreboardEntries : ArrayList<ScoreboardEntry>,
-    private val colorBlindMode : Boolean
-) : RecyclerView.Adapter<RecyclerAdapter.EntryHolder>()
+class RecyclerAdapter : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHolder>(EntriesComparator())
 {
+    lateinit var view: ScoreboardActivity
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): EntryHolder {
+    ): EntryViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.scoreboard_entry_row, parent, false)
 
-        return EntryHolder(view)
+        return EntryViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder : EntryHolder, position : Int)
+    override fun onBindViewHolder(holder : EntryViewHolder, position : Int)
     {
-        val entry = scoreboardEntries[position]
-
-        holder.render(entry)
+        val current = getItem(position)
+        holder.render(current)
     }
 
-    override fun getItemCount() = scoreboardEntries.size
-
-    inner class EntryHolder(view : View) : RecyclerView.ViewHolder(view)
+    inner class EntryViewHolder(itemView : View) : ViewHolder(itemView)
     {
-        private val binding = ScoreboardEntryRowBinding.bind(view)
+        private val binding = ScoreboardEntryRowBinding.bind(itemView)
 
         val combination = arrayOf(
             binding.buttonCombination1,
@@ -66,10 +66,10 @@ class RecyclerAdapter(
 
             for ((index, button) in combination.withIndex())
             {
-                nextColor = entry.combination[index]
+                nextColor = entry.combination.elements[index]
                 changeBackgroundColor(button, nextColor)
 
-                if (colorBlindMode)
+                if (UserSettings.colorBlindMode)
                 {
                     changeImage(button, nextColor)
                 }
@@ -78,9 +78,19 @@ class RecyclerAdapter(
 
         private fun removeAt(position : Int)
         {
-            scoreboardEntries.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, itemCount)
+            view.removeItem(position)
+        }
+    }
+
+    class EntriesComparator : ItemCallback<ScoreboardEntry>() {
+        override fun areItemsTheSame(oldItem: ScoreboardEntry, newItem: ScoreboardEntry): Boolean
+        {
+            return oldItem === newItem
+        }
+
+        override fun areContentsTheSame(oldItem: ScoreboardEntry, newItem: ScoreboardEntry): Boolean
+        {
+            return oldItem.combination == newItem.combination
         }
     }
 }

@@ -2,10 +2,10 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.uabc.computacion.jonathan1168659.rubiksrace.controller.ScoreboardController
-import com.uabc.computacion.jonathan1168659.rubiksrace.data.ScoreboardEntry
+import com.uabc.computacion.jonathan1168659.rubiksrace.core.ScoreboardApplication
+import com.uabc.computacion.jonathan1168659.rubiksrace.database.*
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityScoreboardBinding
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.recyclerview.RecyclerAdapter
 import kotlinx.serialization.decodeFromString
@@ -14,40 +14,42 @@ import kotlinx.serialization.json.Json
 class ScoreboardActivity : AppCompatActivity()
 {
     // Controlador
-    private val controller = ScoreboardController(this)
+//    private val controller = ScoreboardController(this)
     // Binding
-    private lateinit var binding : ActivityScoreboardBinding
-    // Recycler view y su adaptador
-    lateinit var recyclerView : RecyclerView
-    lateinit var adapter : RecyclerAdapter
-    // Bandera del modo daltónico
-    private var colorBlindMode = false
+    private lateinit var bind : ActivityScoreboardBinding
+    // ViewModel
+    private val scoreboardViewModel: ScoreboardViewModel by viewModels {
+        WordViewModelFactory((application as ScoreboardApplication).repository)
+    }
+    // Adapter del RecyclerView
+    private lateinit var adapter: RecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        binding = ActivityScoreboardBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        bind = ActivityScoreboardBinding.inflate(layoutInflater)
+        setContentView(bind.root)
 
-        recyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        colorBlindMode = intent.getBooleanExtra("colorBlindMode", false)
+        adapter = RecyclerAdapter()
+        adapter.view = this
+        bind.recyclerView.adapter = adapter
+        bind.recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Se recibe el nuevo registro del scoreboard
         val scoreboardEntryJson = intent.getStringExtra("newEntry").toString()
         val scoreboardEntry = Json.decodeFromString<ScoreboardEntry>(scoreboardEntryJson)
-        controller.onNewEntry(scoreboardEntry)
+
+        scoreboardViewModel.insert(scoreboardEntry)
+
+        scoreboardViewModel.allEntries.observe(this) { entries ->
+            entries?.let { adapter.submitList(it) }
+        }
     }
 
-    /**
-     * Recibe el set actualizado de
-     * información para actualizar el
-     * RecyclerView
-     */
-    fun updateRecyclerViewData(entries : ArrayList<ScoreboardEntry>)
+    fun removeItem(position: Int)
     {
-        adapter = RecyclerAdapter(entries, colorBlindMode)
-        recyclerView.adapter = adapter
+        val currentList = adapter.currentList.toMutableList()
+        currentList.removeAt(position)
+        adapter.submitList(currentList)
     }
 }
