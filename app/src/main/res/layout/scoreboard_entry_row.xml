@@ -1,169 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true" >
 
-    <TextView
-        android:id="@+id/textViewMoves"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCombination4"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toEndOf="@+id/textViewTime"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="moves" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="15dp">
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="3"
+            android:id="@+id/combination"
+            android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/textViewTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewGame"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="time" />
+            <ImageButton
+                android:id="@+id/buttonCombination1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination6"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="@+id/buttonCombination3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonCombination3"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCombination3" />
+            <ImageButton
+                android:id="@+id/buttonCombination2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination1"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/buttonCombination3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination5"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="@+id/buttonCombination2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonCombination2"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCombination2" />
+            <ImageButton
+                android:id="@+id/buttonCombination4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination4"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="@+id/buttonCombination1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonCombination1"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCombination1" />
+            <ImageButton
+                android:id="@+id/buttonCombination5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination3"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_default"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toEndOf="@+id/buttonCombination2"
-        app:layout_constraintTop_toTopOf="parent"
-        android:clickable="false" />
+            <ImageButton
+                android:id="@+id/buttonCombination6"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination7"
-        android:layout_width="35dp"
-        android:layout_height="43dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCombination8"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="@+id/buttonCombination4"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCombination4"
-        app:layout_constraintVertical_bias="0.0" />
+            <ImageButton
+                android:id="@+id/buttonCombination7"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination9"
-        android:layout_width="35dp"
-        android:layout_height="43dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@+id/buttonCombination8"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCombination6"
-        app:layout_constraintVertical_bias="0.0" />
+            <ImageButton
+                android:id="@+id/buttonCombination8"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination2"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/buttonCombination1"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/buttonCombination9"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_default"
+                android:clickable="false"
+                android:text="@string/empty"
+                tools:ignore="ContentDescription" />
+        </GridLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/combination"
+            android:layout_toStartOf="@id/buttonDelete"
+            android:layout_centerVertical="true" >
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/textViewMoves"
+                android:layout_height="wrap_content"
+                tools:text="moves"
+                android:layout_weight="1"
+                android:gravity="center" />
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/textViewTime"
+                android:layout_height="wrap_content"
+                tools:text="time"
+                android:layout_weight="1"
+                android:gravity="center" />
 
-    <ImageButton
-        android:id="@+id/buttonCombination8"
-        android:layout_width="35dp"
-        android:layout_height="43dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonCombination5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonCombination5"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCombination5"
-        app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/textViewGame"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="game"
+                android:gravity="center" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="game" />
+        <ImageButton
+            android:id="@+id/buttonDelete"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_baseline_delete_forever_24"
+            android:backgroundTint="#000000"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/buttonDelete"
-        android:layout_width="35dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
-        app:layout_constraintStart_toEndOf="@+id/buttonCombination6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

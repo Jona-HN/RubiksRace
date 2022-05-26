@@ -6,538 +6,415 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <ImageButton
-        android:id="@+id/buttonScrambler9"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="36dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid5"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <RelativeLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="50dp">
 
-    <ImageButton
-        android:id="@+id/buttonScrambler6"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="44dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonScrambler9"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <Button
+                android:id="@+id/buttonStart"
+                android:layout_width="118dp"
+                android:layout_height="68dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:text="@string/buttonNewGrid" />
+            <GridLayout
+                android:id="@+id/scramblerCombination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
 
-    <ImageButton
-        android:id="@+id/buttonScrambler3"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="44dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button4Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid9"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid5"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid3"
-        app:layout_constraintTop_toTopOf="parent" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid16"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button16Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid21"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid11" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid12"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button12Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid17"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid13"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid11"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid7" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button6Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid11"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid1" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid20"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button20Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid25"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid19"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid15" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler6"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="44dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button7Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid12"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid8"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid6"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid2" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler7"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid22"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="211dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button22Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid23"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid21"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid17" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler8"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid10"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button10Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid9"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid5" />
+                <ImageButton
+                    android:id="@+id/buttonScrambler9"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/button_default"
+                    android:clickable="false"
+                    android:text="@string/empty"
+                    tools:ignore="ContentDescription" />
+            </GridLayout>
+        </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/buttonGrid11"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button11Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid16"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid6" />
+    <LinearLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/topLayout">
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchMode"
+            android:layout_width="152dp"
+            android:layout_height="34dp"
+            android:text="@string/switchMode"
+            android:layout_marginStart="30dp"/>
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/buttonGrid8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button8Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid13"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid9"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid7"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid3" />
+    <GridLayout
+        android:id="@+id/playersGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="5"
+        android:rowCount="5"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/secondLayout"
+        app:layout_constraintBottom_toTopOf="@id/buttonCheckCombination"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
-    <ImageButton
-        android:id="@+id/buttonGrid21"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="211dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button21Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid22"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid16" />
+        <ImageButton
+            android:id="@+id/buttonGrid1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button1Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid17"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button17Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid22"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid18"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid16"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid12" />
+        <ImageButton
+            android:id="@+id/buttonGrid2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button2Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button2Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid7"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid3"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid1"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/buttonGrid3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button3Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid15"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button15Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid14"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid10" />
+        <ImageButton
+            android:id="@+id/buttonGrid4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button4Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button1Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid6"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/buttonGrid5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button5Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid25"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="211dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button25Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid24"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid20" />
+        <ImageButton
+            android:id="@+id/buttonGrid6"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button6Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid23"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="211dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button23Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid24"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid22"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid18" />
+        <ImageButton
+            android:id="@+id/buttonGrid7"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button7Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid19"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button19Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid24"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid20"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid18"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid14" />
+        <ImageButton
+            android:id="@+id/buttonGrid8"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button8Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid24"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="211dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button24Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid25"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid23"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid19" />
+        <ImageButton
+            android:id="@+id/buttonGrid9"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button9Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid13"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button13Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid18"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid14"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid12"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid8" />
+        <ImageButton
+            android:id="@+id/buttonGrid10"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button10Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button5Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid4"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/buttonGrid11"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button11Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid14"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button14Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid19"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid15"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid13"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid9" />
+        <ImageButton
+            android:id="@+id/buttonGrid12"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button12Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid18"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button18Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid23"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid19"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid17"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid13" />
+        <ImageButton
+            android:id="@+id/buttonGrid13"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button13Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button9Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid14"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid10"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid8"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid4" />
+        <ImageButton
+            android:id="@+id/buttonGrid14"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button14Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonGrid3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_selector"
-        android:clickable="false"
-        android:tag="@string/button3Coords"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid8"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGrid4"
-        app:layout_constraintStart_toEndOf="@+id/buttonGrid2"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/buttonGrid15"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button15Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/buttonStart"
-        android:layout_width="118dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="52dp"
-        android:text="@string/buttonNewGrid"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid1"
-        app:layout_constraintEnd_toStartOf="@+id/buttonScrambler4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/buttonGrid16"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button16Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonScrambler1"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="236dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonScrambler4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <ImageButton
+            android:id="@+id/buttonGrid17"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button17Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonScrambler7"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginBottom="36dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid4"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageButton
+            android:id="@+id/buttonGrid18"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button18Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonScrambler4"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginBottom="1dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonScrambler7"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageButton
+            android:id="@+id/buttonGrid19"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button19Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonScrambler2"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonScrambler5"
-        app:layout_constraintEnd_toStartOf="@+id/buttonScrambler3"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toEndOf="@+id/buttonScrambler1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <ImageButton
+            android:id="@+id/buttonGrid20"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button20Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonScrambler8"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="36dp"
-        android:background="@drawable/button_default"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid5"
-        app:layout_constraintEnd_toStartOf="@+id/buttonScrambler9"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toEndOf="@+id/buttonScrambler7"
-        android:clickable="false" />
+        <ImageButton
+            android:id="@+id/buttonGrid21"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button21Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
 
-    <ImageButton
-        android:id="@+id/buttonScrambler5"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:background="@drawable/button_default"
-        android:clickable="false"
-        android:text="@string/empty"
-        app:layout_constraintBottom_toTopOf="@+id/buttonScrambler8"
-        app:layout_constraintEnd_toStartOf="@+id/buttonScrambler6"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toEndOf="@+id/buttonScrambler4" />
+        <ImageButton
+            android:id="@+id/buttonGrid22"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button22Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/buttonGrid23"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button23Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/buttonGrid24"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button24Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/buttonGrid25"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_selector"
+            android:clickable="false"
+            android:tag="@string/button25Coords"
+            android:text="@string/empty"
+            tools:ignore="ContentDescription" />
+    </GridLayout>
 
     <Button
         android:id="@+id/buttonCheckCombination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
         android:enabled="false"
         android:text="@string/buttonCheckCombination"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrid23" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switchMode"
-        android:layout_width="152dp"
-        android:layout_height="34dp"
-        android:text="@string/switchMode"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGrid1"
-        app:layout_constraintEnd_toStartOf="@+id/buttonScrambler7"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStart"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

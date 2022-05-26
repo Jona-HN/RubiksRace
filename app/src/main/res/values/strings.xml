@@ -33,4 +33,5 @@
     <string name="columnMoves">Movimientos</string>
     <string name="columnCombination">Combinación</string>
     <string name="switchMode">Modo daltónico</string>
+    <string name="scoreboard_title">Scoreboard</string>
 </resources>
