@@ -20,7 +20,7 @@ class CombinationConverter
     @TypeConverter
     fun stringToCombination(elements: String): Combination
     {
-        val elementsList = elements.split("\\s*,\\s*")
+        val elementsList = elements.split(",").filter { it.isNotBlank() }
         val colors = IntArray(elementsList.size)
 
         elementsList.indices.forEach { colors[it] = elementsList[it].toInt() }
