@@ -40,7 +40,6 @@ class ScoreboardActivity : AppCompatActivity()
         val scoreboardEntry = Json.decodeFromString<ScoreboardEntry>(scoreboardEntryJson)
 
         scoreboardViewModel.insert(scoreboardEntry)
-
         scoreboardViewModel.allEntries.observe(this) { entries ->
             entries?.let { adapter.submitList(it) }
         }
@@ -48,8 +47,6 @@ class ScoreboardActivity : AppCompatActivity()
 
     fun removeItem(position: Int)
     {
-        val currentList = adapter.currentList.toMutableList()
-        currentList.removeAt(position)
-        adapter.submitList(currentList)
+        scoreboardViewModel.delete(position)
     }
 }
