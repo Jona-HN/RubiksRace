@@ -53,7 +53,7 @@ class RecyclerAdapter : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHo
         init
         {
             binding.buttonDelete.setOnClickListener {
-                removeAt(adapterPosition)
+                view.removeItem(binding.buttonDelete.tag as Int)
             }
         }
 
@@ -62,6 +62,7 @@ class RecyclerAdapter : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHo
             binding.textViewGame.text = entry.gameNumber.toString()
             binding.textViewTime.text = entry.time.toString()
             binding.textViewMoves.text = entry.moves.toString()
+            binding.buttonDelete.tag = entry.gameNumber
             var nextColor : Int
 
             for ((index, button) in combination.withIndex())
@@ -74,11 +75,6 @@ class RecyclerAdapter : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHo
                     changeImage(button, nextColor)
                 }
             }
-        }
-
-        private fun removeAt(position : Int)
-        {
-            view.removeItem(position)
         }
     }
 
