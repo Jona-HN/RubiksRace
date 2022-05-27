@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity()
      * Manda a llamar a los métodos encargados
      * de actualizar sus vistas correspondientes
      */
-    private suspend fun updateGrids(view : View) = withContext(Dispatchers.IO)
+    private suspend fun updateGrids(view : View)
     {
         playersGridController.updatePlayersGridView()
         rubiksRaceGameController.updateScramblerGridView()
