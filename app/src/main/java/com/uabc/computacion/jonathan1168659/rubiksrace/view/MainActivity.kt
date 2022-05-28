@@ -15,6 +15,7 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityMainB
 import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.UserSettings
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
+import com.uabc.computacion.jonathan1168659.rubiksrace.view.dialog.*
 import kotlinx.coroutines.*
 // Serialization API
 import kotlinx.serialization.json.Json
@@ -123,22 +124,30 @@ class MainActivity : AppCompatActivity()
     //TODO: agregar su correspondiente funcionalidad a cada opción
     override fun onOptionsItemSelected(item: MenuItem): Boolean
     {
-        val msg = when (item.itemId)
+        when (item.itemId)
         {
-            R.id.rules -> "Reglas"
-            R.id.restart_game -> "Reiniciar juego"
+            R.id.rules         -> openSimpleDialog("Rules", getString(R.string.how_to_play))
+            R.id.restart_game  -> "Reiniciar juego"
             R.id.change_colors -> "Cambiar colores"
             R.id.pastel_colors -> "Submenú > colores pastel"
-            R.id.shiny_colors -> "Submenú > colores brillantes"
-            R.id.colorblind -> "Submenú > modo daltónico"
-            R.id.scoreboard -> "Historial de puntuaciones"
-            R.id.credits -> "Créditos"
-            else -> ""
+            R.id.shiny_colors  -> "Submenú > colores brillantes"
+            R.id.colorblind    -> "Submenú > modo daltónico"
+            R.id.scoreboard    -> "Historial de puntuaciones"
+            R.id.credits       -> openCreditsDialog()
         }
 
-        showMessage(msg, Toast.LENGTH_SHORT)
-
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun openSimpleDialog(title: String, message: String)
+    {
+        val dialog = InfoDialog(title, message)
+        dialog.show(supportFragmentManager, "infoDialog")
+    }
+
+    private fun openCreditsDialog()
+    {
+        CreditsDialog().show(supportFragmentManager, "creditsDialog")
     }
 
     /**

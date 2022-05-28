@@ -56,4 +56,6 @@
     <string name="developer_name">by Jonathan Herrera 2022</string>
     <string name="developer_photo_description">Developer\'s photo</string>
     <string name="message_for_player">Thanks for playing!</string>
+    <!--    TODO: agregar instrucciones-->
+    <string name="how_to_play">I still don\'t know how to play this</string>
 </resources>
