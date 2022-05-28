@@ -13,8 +13,6 @@ import kotlinx.serialization.json.Json
 
 class ScoreboardActivity : AppCompatActivity()
 {
-    // Controlador
-//    private val controller = ScoreboardController(this)
     // Binding
     private lateinit var bind : ActivityScoreboardBinding
     // ViewModel
@@ -30,7 +28,7 @@ class ScoreboardActivity : AppCompatActivity()
         bind = ActivityScoreboardBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-        adapter = RecyclerAdapter()
+        adapter = RecyclerAdapter(this)
         adapter.view = this
         bind.recyclerView.adapter = adapter
         bind.recyclerView.layoutManager = LinearLayoutManager(this)

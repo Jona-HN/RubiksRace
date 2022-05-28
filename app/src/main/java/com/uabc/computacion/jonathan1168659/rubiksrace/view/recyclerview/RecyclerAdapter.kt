@@ -1,5 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.view.recyclerview
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHand
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ScoreboardActivity
 
-class RecyclerAdapter : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHolder>(EntriesComparator())
+class RecyclerAdapter(private val context: Context) : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHolder>(EntriesComparator())
 {
     lateinit var view: ScoreboardActivity
 
@@ -59,9 +60,9 @@ class RecyclerAdapter : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHo
 
         fun render(entry: ScoreboardEntry)
         {
-            binding.textViewGame.text = entry.gameNumber.toString()
-            binding.textViewTime.text = entry.time.toString()
-            binding.textViewMoves.text = entry.moves.toString()
+            binding.textViewGame.text = context.resources.getString(R.string.game_template, entry.gameNumber)
+            binding.textViewTime.text = context.resources.getString(R.string.time_template, entry.time)
+            binding.textViewMoves.text = context.resources.getString(R.string.num_movs_template, entry.moves)
             binding.buttonDelete.tag = entry.gameNumber
             var nextColor : Int
 

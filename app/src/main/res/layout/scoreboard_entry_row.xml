@@ -111,34 +111,44 @@
                 android:text="@string/empty"
                 tools:ignore="ContentDescription" />
         </GridLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/combination"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
             android:layout_toStartOf="@id/buttonDelete"
-            android:layout_centerVertical="true" >
-            <TextView
-                android:layout_width="0dp"
-                android:id="@+id/textViewMoves"
-                android:layout_height="wrap_content"
-                tools:text="moves"
-                android:layout_weight="1"
-                android:gravity="center" />
-            <TextView
-                android:layout_width="0dp"
-                android:id="@+id/textViewTime"
-                android:layout_height="wrap_content"
-                tools:text="time"
-                android:layout_weight="1"
-                android:gravity="center" />
+            android:layout_toEndOf="@id/combination"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewGame"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="start"
                 tools:text="game"
-                android:gravity="center" />
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/textViewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="start"
+                tools:text="time"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/textViewMoves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="start"
+                tools:text="moves"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <ImageButton

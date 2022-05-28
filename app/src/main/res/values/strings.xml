@@ -34,4 +34,7 @@
     <string name="columnCombination">Combinación</string>
     <string name="switchMode">Modo daltónico</string>
     <string name="scoreboard_title">Scoreboard</string>
+    <string name="game_template">Juego: %1$d</string>
+    <string name="time_template">Tiempo: %1$d segundos</string>
+    <string name="num_movs_template">Movimientos: %1$d</string>
 </resources>
