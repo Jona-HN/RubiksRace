@@ -23,11 +23,11 @@ import kotlinx.serialization.encodeToString
 
 class MainActivity : AppCompatActivity()
 {
-    private lateinit var playersGridButtons : Array<Array<ImageButton>>
-    private lateinit var scramblerButtons : Array<ImageButton>
-    private lateinit var bind : ActivityMainBinding
+    private lateinit var playersGridButtons: Array<Array<ImageButton>>
+    private lateinit var scramblerButtons: Array<ImageButton>
+    private lateinit var bind: ActivityMainBinding
     private var buttonHasBeenPressed = false
-    private lateinit var clickedButton : ImageButton
+    private lateinit var clickedButton: ImageButton
     private var playedAtLeastOnce = false
 
     // Controladores
@@ -45,12 +45,12 @@ class MainActivity : AppCompatActivity()
         initializeGrids()
 
         val checkButton = bind.buttonCheckCombination
-        checkButton.setOnClickListener{
+        checkButton.setOnClickListener {
             checkButton.isEnabled = !checkPlayerCombination()
         }
 
         val newGridButton = bind.buttonStart
-        newGridButton.setOnClickListener{view ->
+        newGridButton.setOnClickListener { view ->
             runBlocking { launch { updateGrids(view) } }
             newGridButton.text = "Restart"
             rubiksRaceGameController.startTimer()
@@ -67,7 +67,8 @@ class MainActivity : AppCompatActivity()
             }
         }
 
-        if (UserSettings.fileNotExist(this)) {
+        if (UserSettings.fileNotExist(this))
+        {
             UserSettings.createSettingsFile(this)
         }
         else
@@ -104,10 +105,10 @@ class MainActivity : AppCompatActivity()
     {
         val msg = when (item.itemId)
         {
-            R.id.white_background -> "Fondo blanco"
-            R.id.black_background -> "Fondo negro"
+            R.id.white_background  -> "Fondo blanco"
+            R.id.black_background  -> "Fondo negro"
             R.id.purple_background -> "Fondo morado"
-            else -> ""
+            else                   -> ""
         }
 
         showMessage(msg, Toast.LENGTH_SHORT)
@@ -179,7 +180,7 @@ class MainActivity : AppCompatActivity()
      * asignada cada casilla. La tag contiene
      * las coordenadas de la casilla.
      */
-    fun onBoxClick(view : View)
+    fun onBoxClick(view: View)
     {
         // Para guardar el estado del botón presionado
         if (!buttonHasBeenPressed)
@@ -206,7 +207,7 @@ class MainActivity : AppCompatActivity()
      * Manda a llamar a los métodos encargados
      * de actualizar sus vistas correspondientes
      */
-    private suspend fun updateGrids(view : View)
+    private suspend fun updateGrids(view: View)
     {
         playersGridController.updatePlayersGridView()
         rubiksRaceGameController.updateScramblerGridView()
@@ -216,7 +217,7 @@ class MainActivity : AppCompatActivity()
      * Muestra un Toast con un mensaje para
      * indicarle el resultado de una acción al usuario
      */
-    fun showMessage(msg : String, duration : Int)
+    fun showMessage(msg: String, duration: Int)
     {
         Toast.makeText(this, msg, duration).show()
     }
@@ -225,7 +226,7 @@ class MainActivity : AppCompatActivity()
      * Actualiza el color de una casilla
      * del grid del jugador
      */
-    fun updateColorOfPlayersGridBox(boxCoords : Point, color : Int)
+    fun updateColorOfPlayersGridBox(boxCoords: Point, color: Int)
     {
         runOnUiThread {
             val button = playersGridButtons[boxCoords.x][boxCoords.y]
@@ -242,7 +243,7 @@ class MainActivity : AppCompatActivity()
      * Actualiza el color de la casilla
      * del grid del scrambler
      */
-    fun updateColorOfScramblerBox(index : Int, color : Int)
+    fun updateColorOfScramblerBox(index: Int, color: Int)
     {
         runOnUiThread {
             val button = scramblerButtons[index]
