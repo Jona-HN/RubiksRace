@@ -49,24 +49,6 @@ class MainActivity : AppCompatActivity()
             checkButton.isEnabled = !checkPlayerCombination()
         }
 
-        val newGridButton = bind.buttonStart
-        newGridButton.setOnClickListener { view ->
-            runBlocking { launch { updateGrids(view) } }
-            newGridButton.text = "Restart"
-            rubiksRaceGameController.startTimer()
-            checkButton.isEnabled = true
-
-            if (!playedAtLeastOnce)
-            {
-                playersGridButtons.forEach { row ->
-                    row.forEach { btn ->
-                        btn.setOnClickListener { onBoxClick(btn) }
-                    }
-                }
-                playedAtLeastOnce = true
-            }
-        }
-
         if (UserSettings.fileNotExist(this))
         {
             UserSettings.createSettingsFile(this)
@@ -128,7 +110,7 @@ class MainActivity : AppCompatActivity()
         when (item.itemId)
         {
             R.id.rules         -> openSimpleDialog("Rules", getString(R.string.how_to_play))
-            R.id.restart_game  -> "Reiniciar juego"
+            R.id.restart_game  -> startGame()
             R.id.change_colors -> "Cambiar colores"
             R.id.pastel_colors -> "Submenú > colores pastel"
             R.id.shiny_colors  -> "Submenú > colores brillantes"
@@ -138,6 +120,23 @@ class MainActivity : AppCompatActivity()
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun startGame()
+    {
+        runBlocking { launch { updateGrids() } }
+        rubiksRaceGameController.startTimer()
+        bind.buttonCheckCombination.isEnabled = true
+
+        if (!playedAtLeastOnce)
+        {
+            playersGridButtons.forEach { row ->
+                row.forEach { btn ->
+                    btn.setOnClickListener { onBoxClick(btn) }
+                }
+            }
+            playedAtLeastOnce = true
+        }
     }
 
     private fun openSimpleDialog(title: String, message: String)
@@ -207,7 +206,7 @@ class MainActivity : AppCompatActivity()
      * Manda a llamar a los métodos encargados
      * de actualizar sus vistas correspondientes
      */
-    private suspend fun updateGrids(view: View)
+    private suspend fun updateGrids()
     {
         playersGridController.updatePlayersGridView()
         rubiksRaceGameController.updateScramblerGridView()
