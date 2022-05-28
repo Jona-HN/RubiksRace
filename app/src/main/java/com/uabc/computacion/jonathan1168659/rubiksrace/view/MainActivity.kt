@@ -4,10 +4,11 @@ import android.content.Intent
 import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.view.*
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGameController
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityMainBinding
@@ -83,6 +84,32 @@ class MainActivity : AppCompatActivity()
                 }
             }
         }
+
+        // Menú contextual del color del fondo
+        registerForContextMenu(bind.root)
+    }
+
+    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menu.setHeaderTitle(R.string.background_menu_title)
+        menuInflater.inflate(R.menu.background_menu, menu)
+    }
+
+    // TODO: cambiar el color del fondo
+    override fun onContextItemSelected(item: MenuItem): Boolean
+    {
+        val msg = when (item.itemId)
+        {
+            R.id.white_background -> "Fondo blanco"
+            R.id.black_background -> "Fondo negro"
+            R.id.purple_background -> "Fondo morado"
+            else -> ""
+        }
+
+        showMessage(msg, Toast.LENGTH_SHORT)
+
+        return super.onContextItemSelected(item)
     }
 
     /**
