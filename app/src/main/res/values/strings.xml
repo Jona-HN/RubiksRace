@@ -52,4 +52,8 @@
     <string name="pastel_colors">Pastel colors</string>
     <string name="shiny_colors">Shiny colors</string>
     <string name="colorblind">Color blind</string>
+    <!--    Contenido de los dialogs-->
+    <string name="developer_name">by Jonathan Herrera 2022</string>
+    <string name="developer_photo_description">Developer\'s photo</string>
+    <string name="message_for_player">Thanks for playing!</string>
 </resources>
