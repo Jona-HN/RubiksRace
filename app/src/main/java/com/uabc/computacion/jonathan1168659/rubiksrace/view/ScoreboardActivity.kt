@@ -35,9 +35,12 @@ class ScoreboardActivity : AppCompatActivity()
 
         // Se recibe el nuevo registro del scoreboard
         val scoreboardEntryJson = intent.getStringExtra("newEntry").toString()
-        val scoreboardEntry = Json.decodeFromString<ScoreboardEntry>(scoreboardEntryJson)
+        if (scoreboardEntryJson.isNotEmpty())
+        {
+            val scoreboardEntry = Json.decodeFromString<ScoreboardEntry>(scoreboardEntryJson)
+            scoreboardViewModel.insert(scoreboardEntry)
+        }
 
-        scoreboardViewModel.insert(scoreboardEntry)
         scoreboardViewModel.allEntries.observe(this) { entries ->
             entries?.let { adapter.submitList(it) }
         }

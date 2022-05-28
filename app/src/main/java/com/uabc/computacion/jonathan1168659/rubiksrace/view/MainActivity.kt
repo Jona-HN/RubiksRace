@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity()
             R.id.pastel_colors -> "Submenú > colores pastel"
             R.id.shiny_colors  -> "Submenú > colores brillantes"
             R.id.colorblind    -> "Submenú > modo daltónico"
-            R.id.scoreboard    -> "Historial de puntuaciones"
+            R.id.scoreboard    -> goToScoreboard()
             R.id.credits       -> openCreditsDialog()
         }
 
@@ -278,5 +278,16 @@ class MainActivity : AppCompatActivity()
         }
 
         return false
+    }
+
+    /**
+     * Método que contiene un intent (vacío)
+     * y dirige hacia la actividad del scoreboard
+     */
+    private fun goToScoreboard()
+    {
+        val intentScoreboard = Intent(this, ScoreboardActivity::class.java)
+        intentScoreboard.putExtra("newEntry", "")
+        startActivity(intentScoreboard)
     }
 }
