@@ -42,4 +42,14 @@
     <string name="white_background">White background</string>
     <string name="black_background">Black background</string>
     <string name="purple_background">Purple background</string>
+    <!--    Opciones del menú principal -->
+    <string name="rules">Rules</string>
+    <string name="restart_game">Restart game</string>
+    <string name="change_colors">Change colors</string>
+    <string name="scoreboard">See scoreboard</string>
+    <string name="credits">Credits</string>
+    <!--    Opciones del submenú de colores -->
+    <string name="pastel_colors">Pastel colors</string>
+    <string name="shiny_colors">Shiny colors</string>
+    <string name="colorblind">Color blind</string>
 </resources>

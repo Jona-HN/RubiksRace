@@ -87,6 +87,8 @@ class MainActivity : AppCompatActivity()
 
         // Menú contextual del color del fondo
         registerForContextMenu(bind.root)
+        // Menú principal
+        setSupportActionBar(bind.toolbar)
     }
 
     override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?)
@@ -110,6 +112,33 @@ class MainActivity : AppCompatActivity()
         showMessage(msg, Toast.LENGTH_SHORT)
 
         return super.onContextItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean
+    {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    //TODO: agregar su correspondiente funcionalidad a cada opción
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
+    {
+        val msg = when (item.itemId)
+        {
+            R.id.rules -> "Reglas"
+            R.id.restart_game -> "Reiniciar juego"
+            R.id.change_colors -> "Cambiar colores"
+            R.id.pastel_colors -> "Submenú > colores pastel"
+            R.id.shiny_colors -> "Submenú > colores brillantes"
+            R.id.colorblind -> "Submenú > modo daltónico"
+            R.id.scoreboard -> "Historial de puntuaciones"
+            R.id.credits -> "Créditos"
+            else -> ""
+        }
+
+        showMessage(msg, Toast.LENGTH_SHORT)
+
+        return super.onOptionsItemSelected(item)
     }
 
     /**
