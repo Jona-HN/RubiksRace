@@ -7,17 +7,28 @@ import kotlin.random.Random
  */
 class Dice
 {
-    private val colors = DiceColor.values()
-    var topFace = roll()
+    var topFace : DiceColor
         private set
+
+    init
+    {
+        topFace = roll()
+    }
 
     /**
      * Tira el dado y regresa la cara que salió
      */
-    fun roll() : DiceColor
+    fun roll(): DiceColor
     {
-        val face = colors[Random.nextInt(0, (colors.size - 1))]
-        topFace = face
+        topFace = colors[randomNumber()]
         return topFace
+    }
+
+    companion object
+    {
+        private val random = Random(System.currentTimeMillis())
+        val colors = DiceColor.values()
+
+        fun randomNumber() = random.nextInt(colors.size)
     }
 }
