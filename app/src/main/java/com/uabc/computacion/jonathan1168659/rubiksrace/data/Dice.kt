@@ -1,6 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.data
 
-import kotlin.random.Random
+import java.util.Random
 
 /**
  * Clase que representa un dado de colores
@@ -21,7 +21,7 @@ class Dice
 
     companion object
     {
-        private val random = Random(System.currentTimeMillis())
+        private val random = Random(System.nanoTime())
         val colors = DiceColor.values()
 
         fun randomNumber() = random.nextInt(colors.size)

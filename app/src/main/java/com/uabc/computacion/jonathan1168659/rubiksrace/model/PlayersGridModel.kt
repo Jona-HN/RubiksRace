@@ -3,7 +3,7 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.model
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
 import android.graphics.Point
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
-import kotlin.random.Random
+import java.util.Random
 
 /**
  * Clase que representa el grid del jugador (su campo de juego)
@@ -161,5 +161,12 @@ class PlayersGridModel
     fun getBoxColor(boxCoords : Point) : Int
     {
         return grid[boxCoords.x][boxCoords.y]
+    }
+
+    companion object
+    {
+        private val random = Random(System.nanoTime())
+
+        fun oneOutOf15() = random.nextInt(15) == 1
     }
 }
