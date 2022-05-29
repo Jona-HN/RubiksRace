@@ -2,12 +2,16 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.view
 
 import android.content.Intent
 import android.graphics.Point
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AnimationUtils
+
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGameController
@@ -32,6 +36,10 @@ class MainActivity : AppCompatActivity()
     private val playersGridController = PlayersGridController(this)
     private val rubiksRaceGameController = RubiksRaceGameController(this, playersGridController)
 
+    // Reproductores de sonido
+    private lateinit var completeSound : MediaPlayer
+    private lateinit var errorSound : MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         // Forza el fondo claro para que la casilla negra se note
@@ -41,6 +49,7 @@ class MainActivity : AppCompatActivity()
         setContentView(bind.root)
 
         initializeGrids()
+        initializeMediaPlayers()
 
         val checkButton = bind.buttonCheckCombination
         checkButton.setOnClickListener {
@@ -61,6 +70,12 @@ class MainActivity : AppCompatActivity()
         registerForContextMenu(bind.root)
         // Menú principal
         setSupportActionBar(bind.toolbar)
+    }
+
+    private fun initializeMediaPlayers()
+    {
+        completeSound = MediaPlayer.create(this, R.raw.hero_simple_celebration_03)
+        errorSound = MediaPlayer.create(this, R.raw.alert_error_03)
     }
 
     /**
@@ -272,6 +287,7 @@ class MainActivity : AppCompatActivity()
     {
         if (rubiksRaceGameController.checkIfPlayerWon())
         {
+            completeSound.start()
             val intentScoreboard = Intent(this, ScoreboardActivity::class.java)
             val scoreboardEntryJson = Json.encodeToString(rubiksRaceGameController.lastScoreboardEntry)
 
@@ -279,8 +295,17 @@ class MainActivity : AppCompatActivity()
             startActivity(intentScoreboard)
             return true
         }
-
-        return false
+        else
+        {
+            errorSound.start()
+            bind.playersGrid.startAnimation(
+                AnimationUtils.loadAnimation(
+                    this,
+                    R.anim.shake
+                )
+            )
+            return false
+        }
     }
 
     /**

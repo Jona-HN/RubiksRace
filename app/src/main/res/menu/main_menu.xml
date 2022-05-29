@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/rules"
-        android:title="@string/rules" />
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/restart_game"
-        android:title="@string/restart_game" />
+        android:title="@string/restart_game"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_new_game" />
     <item
-        android:id="@+id/change_colors"
-        android:title="@string/change_colors">
+        android:id="@+id/rules"
+        android:title="@string/rules"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_help"/>
+    <item
+        android:icon="@drawable/ic_more_vertical"
+        app:showAsAction="always"
+        android:title="">
         <menu>
             <item
-                android:id="@+id/pastel_colors"
-                android:title="@string/pastel_colors" />
+                android:id="@+id/change_colors"
+                android:title="@string/change_colors"
+                android:icon="@drawable/ic_colors_palette"
+                app:showAsAction="ifRoom">
+                <menu>
+                    <item
+                        android:id="@+id/pastel_colors"
+                        android:title="@string/pastel_colors" />
+                    <item
+                        android:id="@+id/shiny_colors"
+                        android:title="@string/shiny_colors" />
+                    <item
+                        android:id="@+id/colorblind"
+                        android:title="@string/colorblind"/>
+                </menu>
+            </item>
             <item
-                android:id="@+id/shiny_colors"
-                android:title="@string/shiny_colors" />
+                android:id="@+id/scoreboard"
+                android:title="@string/scoreboard"
+                android:icon="@drawable/ic_scores"/>
             <item
-                android:id="@+id/colorblind"
-                android:title="@string/colorblind"/>
+                android:id="@+id/credits"
+                android:title="@string/credits"
+                android:icon="@drawable/ic_credits" />
         </menu>
     </item>
-    <item
-        android:id="@+id/scoreboard"
-        android:title="@string/scoreboard" />
-    <item
-        android:id="@+id/credits"
-        android:title="@string/credits" />
 </menu>
