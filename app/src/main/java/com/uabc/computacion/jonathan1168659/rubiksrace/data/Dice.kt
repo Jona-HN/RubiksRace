@@ -7,13 +7,8 @@ import kotlin.random.Random
  */
 class Dice
 {
-    var topFace : DiceColor
+    lateinit var topFace : DiceColor
         private set
-
-    init
-    {
-        topFace = roll()
-    }
 
     /**
      * Tira el dado y regresa la cara que salió
