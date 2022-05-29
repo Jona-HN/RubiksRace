@@ -3,6 +3,7 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.model
 import android.graphics.Color
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
 import android.graphics.Point
+import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import kotlin.random.Random
 
 /**
@@ -45,7 +46,7 @@ class PlayersGridModel
                 if (!blackBoxAppeared && Random.nextInt(1, 26) == 1)
                 {
                     blackBoxIndices = Point(row, col)
-                    nextColor = Color.BLACK
+                    nextColor = R.color.black
                     blackBoxAppeared = true
                 }
                 else
@@ -88,7 +89,7 @@ class PlayersGridModel
         {
             val firstBoxColor = grid[firstBoxIndices.x][firstBoxIndices.y]
             grid[secondBoxIndices.x][secondBoxIndices.y] = firstBoxColor
-            grid[firstBoxIndices.x][firstBoxIndices.y] = Color.BLACK
+            grid[firstBoxIndices.x][firstBoxIndices.y] = R.color.black
             blackBoxIndices = Point(firstBoxIndices)
 
             numOfMoves++
