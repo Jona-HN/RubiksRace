@@ -18,7 +18,7 @@ class ScramblerModel
 	 */
 	fun scramble()
 	{
-		val repetitions = IntArray(Dice.colors.size) { 0 }
+		val repetitions = IntArray(Dice.colors.size)
 		var nextColorReachedMaxRepetitions : Boolean
 		var indexOfColor : Int
 
