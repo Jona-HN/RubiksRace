@@ -2,6 +2,7 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.view
 
 import android.content.Intent
 import android.graphics.Point
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
@@ -33,6 +34,9 @@ class MainActivity : AppCompatActivity()
     private val playersGridController = PlayersGridController(this)
     private val rubiksRaceGameController = RubiksRaceGameController(this, playersGridController)
 
+    // Reproductores de sonido
+    private lateinit var completeSound : MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         // Forza el fondo claro para que la casilla negra se note
@@ -42,6 +46,7 @@ class MainActivity : AppCompatActivity()
         setContentView(bind.root)
 
         initializeGrids()
+        initializeMediaPlayers()
 
         val checkButton = bind.buttonCheckCombination
         checkButton.setOnClickListener {
@@ -62,6 +67,11 @@ class MainActivity : AppCompatActivity()
         registerForContextMenu(bind.root)
         // Menú principal
         setSupportActionBar(bind.toolbar)
+    }
+
+    private fun initializeMediaPlayers()
+    {
+        completeSound = MediaPlayer.create(this, R.raw.hero_simple_celebration_03)
     }
 
     /**
@@ -277,6 +287,7 @@ class MainActivity : AppCompatActivity()
     {
         if (rubiksRaceGameController.checkIfPlayerWon())
         {
+            completeSound.start()
             val intentScoreboard = Intent(this, ScoreboardActivity::class.java)
             val scoreboardEntryJson = Json.encodeToString(rubiksRaceGameController.lastScoreboardEntry)
 
