@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.uabc.computacion.jonathan1168659.rubiksrace.core.ScoreboardApplication
 import com.uabc.computacion.jonathan1168659.rubiksrace.database.*
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityScoreboardBinding
+import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.UserSettings
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.recyclerview.RecyclerAdapter
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -28,6 +29,7 @@ class ScoreboardActivity : AppCompatActivity()
         bind = ActivityScoreboardBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        bind.root.setBackgroundColor(resources.getColor(UserSettings.backgroundColor, null))
         adapter = RecyclerAdapter(this)
         adapter.view = this
         bind.recyclerView.adapter = adapter
