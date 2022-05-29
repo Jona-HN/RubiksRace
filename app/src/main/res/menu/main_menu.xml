@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/rules"
-        android:title="@string/rules" />
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/restart_game"
-        android:title="@string/restart_game" />
+        android:title="@string/restart_game"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_new_game" />
+    <item
+        android:id="@+id/rules"
+        android:title="@string/rules"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_help"/>
     <item
         android:id="@+id/change_colors"
         android:title="@string/change_colors">
