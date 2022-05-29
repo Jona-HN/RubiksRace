@@ -34,6 +34,7 @@ class PlayersGridModel
         var nextColorIndex : Int
         var nextColorReachedMaxRepetitions : Boolean
         var blackBoxAppeared = false
+        var lastBox: Boolean
 
         // Se reinicia la cantidad de movimientos
         numOfMoves = 0
@@ -42,7 +43,9 @@ class PlayersGridModel
         {
             for (col in 0 until NO_OF_ROWS_N_COLS)
             {
-                if (!blackBoxAppeared && Random.nextInt(1, 26) == 1)
+                lastBox = row == 4 && col == 4
+
+                if (!blackBoxAppeared && (oneOutOf15() || lastBox))
                 {
                     blackBoxIndices = Point(row, col)
                     nextColor = R.color.black
@@ -52,7 +55,7 @@ class PlayersGridModel
                 {
                     do
                     {
-                        nextColorIndex = Random.nextInt(colors.size)
+                        nextColorIndex = random.nextInt(colors.size)
                         nextColorReachedMaxRepetitions = repetitions[nextColorIndex] > 3
                     } while (nextColorReachedMaxRepetitions)
 
