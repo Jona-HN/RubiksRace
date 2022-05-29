@@ -16,7 +16,7 @@ class ScramblerModel
 	 * de que cada color no puede repetirse más
 	 * de 4 veces
 	 */
-	suspend fun scramble()
+	fun scramble()
 	{
 		val repetitions = IntArray(Dice.colors.size) { 0 }
 		var nextColorReachedMaxRepetitions : Boolean

@@ -41,7 +41,7 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
      * Actualiza la vista del
      * grid del scrambler
      */
-    suspend fun updateScramblerGridView()
+    fun updateScramblerGridView()
     {
         model.generateNewCombination()
         refreshGridInView()
@@ -51,8 +51,7 @@ class RubiksRaceGameController(val view : MainActivity, val playersGridControlle
      * Actualiza el color de las casillas
      * del scrambler
      */
-    @Suppress("RedundantSuspendModifier")
-    suspend fun refreshGridInView()
+    fun refreshGridInView()
     {
         val scramblerGrid = model.getCombination()
 

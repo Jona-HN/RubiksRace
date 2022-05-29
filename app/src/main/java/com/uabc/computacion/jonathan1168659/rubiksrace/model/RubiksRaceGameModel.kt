@@ -26,7 +26,7 @@ class RubiksRaceGameModel
 	 * Genera una nueva combinación
 	 * por medio del scrambler
 	 */
-	suspend fun generateNewCombination()
+	fun generateNewCombination()
 	{
 		scrambler.scramble()
 	}

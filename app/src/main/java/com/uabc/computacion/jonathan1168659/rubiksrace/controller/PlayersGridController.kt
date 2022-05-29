@@ -58,7 +58,7 @@ class PlayersGridController(private val view: MainActivity)
     /**
      * Actualiza el grid del jugador en la vista
      */
-    suspend fun updatePlayersGridView()
+    fun updatePlayersGridView()
     {
         model.generateNewGrid()
         refreshGridInView()
@@ -68,7 +68,7 @@ class PlayersGridController(private val view: MainActivity)
      * Cambia el color (y figura)
      * de cada botón
      */
-    suspend fun refreshGridInView()
+    fun refreshGridInView()
     {
         val playersGrid = model.grid
 

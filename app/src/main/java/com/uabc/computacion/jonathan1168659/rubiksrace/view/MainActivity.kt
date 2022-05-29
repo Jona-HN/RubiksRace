@@ -15,7 +15,6 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityMainB
 import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.*
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.dialog.*
-import kotlinx.coroutines.*
 // Serialization API
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.encodeToString
@@ -126,12 +125,8 @@ class MainActivity : AppCompatActivity()
     {
         UserSettings.colorMode = mode.key
 
-        runBlocking {
-            launch {
-                playersGridController.refreshGridInView()
-                rubiksRaceGameController.refreshGridInView()
-            }
-        }
+        playersGridController.refreshGridInView()
+        rubiksRaceGameController.refreshGridInView()
 
         UserSettings.saveSettings(this)
         refreshSettingsInView()
@@ -139,7 +134,7 @@ class MainActivity : AppCompatActivity()
 
     private fun startGame()
     {
-        runBlocking { launch { updateGrids() } }
+        updateGrids()
         rubiksRaceGameController.startTimer()
         bind.buttonCheckCombination.isEnabled = true
 
@@ -221,7 +216,7 @@ class MainActivity : AppCompatActivity()
      * Manda a llamar a los métodos encargados
      * de actualizar sus vistas correspondientes
      */
-    private suspend fun updateGrids()
+    private fun updateGrids()
     {
         playersGridController.updatePlayersGridView()
         rubiksRaceGameController.updateScramblerGridView()
