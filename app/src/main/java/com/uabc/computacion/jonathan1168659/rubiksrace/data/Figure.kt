@@ -1,23 +1,20 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.data
 
-import android.graphics.Color.*
 import com.uabc.computacion.jonathan1168659.rubiksrace.R.drawable.*
+import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor.*
 
 class Figure
 {
     companion object
     {
-        private val ORANGE = rgb(240, 112, 14)
-        private val BLUE = rgb(19, 115, 212)
-
         private val colorShapeRelations : HashMap<Int, Int> =
             hashMapOf(
-                RED to square,
-                GREEN to circle,
-                YELLOW to lightning,
-                ORANGE to star,
-                WHITE to gear,
-                BLUE to diamond
+                RED.shiny_color to square,
+                GREEN.shiny_color to circle,
+                YELLOW.shiny_color to lightning,
+                ORANGE.shiny_color to star,
+                WHITE.shiny_color to gear,
+                BLUE.shiny_color to diamond
             )
 
         fun getResourceFile(color : Int) : Int
