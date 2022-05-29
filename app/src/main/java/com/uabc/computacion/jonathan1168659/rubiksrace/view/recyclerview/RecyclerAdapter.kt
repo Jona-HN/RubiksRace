@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.ListAdapter
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.database.ScoreboardEntry
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ScoreboardEntryRowBinding
-import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.UserSettings
+import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.*
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
-import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
+//import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ScoreboardActivity
 
 class RecyclerAdapter(private val context: Context) : ListAdapter<ScoreboardEntry, RecyclerAdapter.EntryViewHolder>(EntriesComparator())
@@ -69,12 +69,9 @@ class RecyclerAdapter(private val context: Context) : ListAdapter<ScoreboardEntr
             for ((index, button) in combination.withIndex())
             {
                 nextColor = entry.combination.elements[index]
-                changeBackgroundColor(button, nextColor)
+                val colorMode = UserSettings.colorMode
 
-                if (UserSettings.colorBlindMode)
-                {
-                    changeImage(button, nextColor)
-                }
+                changeBackgroundColor(context.resources, colorMode, button, nextColor)
             }
         }
     }

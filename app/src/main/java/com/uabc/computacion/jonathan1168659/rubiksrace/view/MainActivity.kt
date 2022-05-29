@@ -106,7 +106,6 @@ class MainActivity : AppCompatActivity()
         return super.onCreateOptionsMenu(menu)
     }
 
-    //TODO: agregar su correspondiente funcionalidad a cada opción
     override fun onOptionsItemSelected(item: MenuItem): Boolean
     {
         when (item.itemId)
@@ -244,13 +243,10 @@ class MainActivity : AppCompatActivity()
     fun updateColorOfPlayersGridBox(boxCoords: Point, color: Int)
     {
         runOnUiThread {
+            val colorMode = UserSettings.colorMode
             val button = playersGridButtons[boxCoords.x][boxCoords.y]
-            changeBackgroundColor(button, color)
 
-            if (UserSettings.colorBlindMode)
-            {
-                changeImage(button, color)
-            }
+            changeBackgroundColor(resources, colorMode, button, color)
         }
     }
 
@@ -261,13 +257,10 @@ class MainActivity : AppCompatActivity()
     fun updateColorOfScramblerBox(index: Int, color: Int)
     {
         runOnUiThread {
+            val colorMode = UserSettings.colorMode
             val button = scramblerButtons[index]
-            changeBackgroundColor(button, color)
 
-            if (UserSettings.colorBlindMode)
-            {
-                changeImage(button, color)
-            }
+            changeBackgroundColor(resources, colorMode, button, color)
         }
     }
 
