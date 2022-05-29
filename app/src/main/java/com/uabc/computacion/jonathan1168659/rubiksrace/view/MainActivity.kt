@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity()
 
     // Reproductores de sonido
     private lateinit var completeSound : MediaPlayer
+    private lateinit var errorSound : MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -72,6 +73,7 @@ class MainActivity : AppCompatActivity()
     private fun initializeMediaPlayers()
     {
         completeSound = MediaPlayer.create(this, R.raw.hero_simple_celebration_03)
+        errorSound = MediaPlayer.create(this, R.raw.alert_error_03)
     }
 
     /**
@@ -295,8 +297,11 @@ class MainActivity : AppCompatActivity()
             startActivity(intentScoreboard)
             return true
         }
-
-        return false
+        else
+        {
+            errorSound.start()
+            return false
+        }
     }
 
     /**
