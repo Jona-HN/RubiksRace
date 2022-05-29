@@ -59,18 +59,19 @@
     <string name="message_for_player">Thanks for playing!</string>
     <string name="how_to_play">
         <![CDATA[
-            <h3>
-            El objetivo del juego es formar la combinación mostrada en la parte superior de la pantalla
-            en el centro de la cuadrícula de 5x5.
-            </h3>
-            <h3>
-            Para mover una casilla de lugar, pulse alguna casilla que sea adyacente a la de color negro. Seguidamente,
-            pulse la casilla de color negro para intercambiar ambas casillas de lugar.
-            </h3>
-            <h3>
-            Una vez complete la combinación indicada, pulse el botón ubicado en la parte inferior de la pantalla,
-            si es correcta, verá el marcador de puntajes.
-            </h3>
+            <big>
+                <div>
+                El objetivo del juego es <b>formar la combinación mostrada</b> en la parte superior de la pantalla
+                en el centro de la cuadrícula de 5x5.
+                </div>
+                <div>
+                Para mover una casilla de lugar, pulse alguna casilla que sea <b>adyacente</b> a la de color negro. Seguidamente,
+                pulse la casilla de color negro para intercambiar ambas casillas de lugar.
+                </div>
+                <div>
+                Una vez complete la combinación indicada, <b>pulse el botón ubicado en la parte inferior de la pantalla</b>.
+                </div>
+            </big>
         ]]>
     </string>
 </resources>
