@@ -21,5 +21,6 @@
     <color name="orange_pastel">#FFAD66</color>
     <!-- El blanco es igual-->
     <color name="blue_pastel">#7ED8FF</color>
+    <color name="black_pastel">#3F3F3F</color>
 
 </resources>
