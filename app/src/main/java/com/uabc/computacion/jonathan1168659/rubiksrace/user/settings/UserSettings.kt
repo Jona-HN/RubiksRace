@@ -10,9 +10,9 @@ class UserSettings
     companion object
     {
         private const val SETTINGS_FILE = "rubiksRaceSettings.json"
-        private const val COLOR_BLIND_MODE = "colorBlindMode"
+        private const val COLOR_MODE = "colorMode"
         private const val BACKGROUND_COLOR = "backgroundColor"
-        var colorBlindMode = false
+        var colorMode = ColorMode.SHINY.key
         var backgroundColor = R.color.white
 
         fun fileNotExist(context: Context): Boolean
@@ -38,11 +38,11 @@ class UserSettings
             {
                 writer.setIndent("  ")
                 writer.beginObject()
-                writer.name(COLOR_BLIND_MODE).value(colorBlindMode)
+                writer.name(COLOR_MODE).value(colorMode)
                 writer.name(BACKGROUND_COLOR).value(backgroundColor)
                 writer.endObject()
                 Log.i("settings", "Settings guardados")
-                Log.i("settings", "Modo daltónico = ${this.colorBlindMode}")
+                Log.i("settings", "Modo de color = ${this.colorMode}")
             }
             catch (e: IOException)
             {
@@ -68,14 +68,14 @@ class UserSettings
 
                     when
                     {
-                        name.equals(COLOR_BLIND_MODE) -> colorBlindMode = reader.nextBoolean()
+                        name.equals(COLOR_MODE)       -> colorMode = reader.nextString()
                         name.equals(BACKGROUND_COLOR) -> backgroundColor = reader.nextInt()
                         else                          -> reader.skipValue()
                     }
                 }
                 reader.endObject()
                 Log.i("settings", "Settings cargados")
-                Log.i("settings", "Modo daltónico = $colorBlindMode")
+                Log.i("settings", "Modo de color = $colorMode")
             }
             catch (e: IOException)
             {
