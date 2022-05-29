@@ -56,11 +56,12 @@ class MainActivity : AppCompatActivity()
         else
         {
             UserSettings.loadSettings(this)
+            refreshSettingsInView()
         }
-        bind.switchMode.isChecked = UserSettings.colorBlindMode
 
         bind.switchMode.setOnCheckedChangeListener { _, isChecked ->
-            UserSettings.saveSettings(this, isChecked)
+            UserSettings.colorBlindMode = isChecked
+            UserSettings.saveSettings(this)
             runBlocking {
                 launch {
                     playersGridController.refreshGridInView()
@@ -75,6 +76,16 @@ class MainActivity : AppCompatActivity()
         setSupportActionBar(bind.toolbar)
     }
 
+    /**
+     * Refresca (o aplica) las preferencias del usuario
+     * almacenadas en la vista
+     */
+    private fun refreshSettingsInView()
+    {
+        bind.switchMode.isChecked = UserSettings.colorBlindMode
+        bind.root.setBackgroundColor(resources.getColor(UserSettings.backgroundColor, null))
+    }
+
     override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?)
     {
         super.onCreateContextMenu(menu, v, menuInfo)
@@ -82,18 +93,22 @@ class MainActivity : AppCompatActivity()
         menuInflater.inflate(R.menu.background_menu, menu)
     }
 
-    // TODO: cambiar el color del fondo
     override fun onContextItemSelected(item: MenuItem): Boolean
     {
-        val msg = when (item.itemId)
+        val color = when (item.itemId)
         {
-            R.id.white_background  -> "Fondo blanco"
-            R.id.black_background  -> "Fondo negro"
-            R.id.purple_background -> "Fondo morado"
-            else                   -> ""
+            R.id.white_background  -> R.color.white
+            R.id.red_background    -> R.color.red
+            R.id.purple_background -> R.color.purple_500
+            else                   -> 0
         }
 
-        showMessage(msg, Toast.LENGTH_SHORT)
+        if (color != 0)
+        {
+            UserSettings.backgroundColor = color
+            UserSettings.saveSettings(this)
+            refreshSettingsInView()
+        }
 
         return super.onContextItemSelected(item)
     }
