@@ -12,9 +12,8 @@ import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGameController
 import com.uabc.computacion.jonathan1168659.rubiksrace.databinding.ActivityMainBinding
-import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.UserSettings
+import com.uabc.computacion.jonathan1168659.rubiksrace.user.settings.*
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeBackgroundColor
-import com.uabc.computacion.jonathan1168659.rubiksrace.view.ButtonBackgroundHandler.Companion.changeImage
 import com.uabc.computacion.jonathan1168659.rubiksrace.view.dialog.*
 import kotlinx.coroutines.*
 // Serialization API
@@ -59,17 +58,6 @@ class MainActivity : AppCompatActivity()
             refreshSettingsInView()
         }
 
-        bind.switchMode.setOnCheckedChangeListener { _, isChecked ->
-            UserSettings.colorBlindMode = isChecked
-            UserSettings.saveSettings(this)
-            runBlocking {
-                launch {
-                    playersGridController.refreshGridInView()
-                    rubiksRaceGameController.refreshGridInView()
-                }
-            }
-        }
-
         // Menú contextual del color del fondo
         registerForContextMenu(bind.root)
         // Menú principal
@@ -82,7 +70,6 @@ class MainActivity : AppCompatActivity()
      */
     private fun refreshSettingsInView()
     {
-        bind.switchMode.isChecked = UserSettings.colorBlindMode
         bind.root.setBackgroundColor(resources.getColor(UserSettings.backgroundColor, null))
     }
 
@@ -126,15 +113,29 @@ class MainActivity : AppCompatActivity()
         {
             R.id.rules         -> openSimpleDialog("Rules", getString(R.string.how_to_play))
             R.id.restart_game  -> startGame()
-            R.id.change_colors -> "Cambiar colores"
-            R.id.pastel_colors -> "Submenú > colores pastel"
-            R.id.shiny_colors  -> "Submenú > colores brillantes"
-            R.id.colorblind    -> "Submenú > modo daltónico"
+            R.id.pastel_colors -> changeColors(ColorMode.PASTEL)
+            R.id.shiny_colors  -> changeColors(ColorMode.SHINY)
+            R.id.colorblind    -> changeColors(ColorMode.COLORBLIND)
             R.id.scoreboard    -> goToScoreboard()
             R.id.credits       -> openCreditsDialog()
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun changeColors(mode: ColorMode)
+    {
+        UserSettings.colorMode = mode.key
+
+        runBlocking {
+            launch {
+                playersGridController.refreshGridInView()
+                rubiksRaceGameController.refreshGridInView()
+            }
+        }
+
+        UserSettings.saveSettings(this)
+        refreshSettingsInView()
     }
 
     private fun startGame()
