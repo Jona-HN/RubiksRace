@@ -9,8 +9,8 @@ class Figure
     {
         private val colorShapeRelations : HashMap<Int, Int> =
             hashMapOf(
-                RED.shiny_color to square,
-                GREEN.shiny_color to circle,
+                RED.shiny_color to heart,
+                GREEN.shiny_color to pacman,
                 YELLOW.shiny_color to lightning,
                 ORANGE.shiny_color to star,
                 WHITE.shiny_color to gear,
