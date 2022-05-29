@@ -1,7 +1,6 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.Dice
-import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
 
 /**
  * Clase que representa un scrambler del juego Rubik's Race
@@ -19,23 +18,21 @@ class ScramblerModel
 	 */
 	suspend fun scramble()
 	{
-		val colors = DiceColor.values()
-		val repetitions = IntArray(colors.size)
-		var topFace : DiceColor
+		val repetitions = IntArray(Dice.colors.size) { 0 }
 		var nextColorReachedMaxRepetitions : Boolean
-		var nextColorIndex : Int
+		var indexOfColor : Int
 
 		for ((index, dice) in dices.withIndex())
 		{
 			do
 			{
-				topFace = dice.roll()
-				nextColorIndex = colors.indexOf(topFace)
-				nextColorReachedMaxRepetitions = repetitions[nextColorIndex] > 3
+				dice.roll()
+				indexOfColor = Dice.colors.indexOf(dice.topFace)
+				nextColorReachedMaxRepetitions = repetitions[indexOfColor] > 3
 			} while (nextColorReachedMaxRepetitions)
 
-			repetitions[nextColorIndex]++
-			combination[index] = topFace.color
+			repetitions[indexOfColor]++
+			combination[index] = dice.topFace.shiny_color
 		}
 	}
 }
