@@ -137,19 +137,6 @@
         </GridLayout>
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/secondLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/topLayout">
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switchMode"
-            android:layout_width="152dp"
-            android:layout_height="34dp"
-            android:text="@string/switchMode"
-            android:layout_marginStart="30dp"/>
-    </LinearLayout>
-
     <GridLayout
         android:id="@+id/playersGrid"
         android:layout_width="wrap_content"
@@ -157,7 +144,7 @@
         android:columnCount="5"
         android:rowCount="5"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/secondLayout"
+        app:layout_constraintTop_toBottomOf="@id/topLayout"
         app:layout_constraintBottom_toTopOf="@id/buttonCheckCombination"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
