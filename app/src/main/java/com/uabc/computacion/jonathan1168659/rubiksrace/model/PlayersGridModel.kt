@@ -1,6 +1,5 @@
 package com.uabc.computacion.jonathan1168659.rubiksrace.model
 
-import android.graphics.Color
 import com.uabc.computacion.jonathan1168659.rubiksrace.data.DiceColor
 import android.graphics.Point
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
@@ -58,7 +57,7 @@ class PlayersGridModel
                     } while (nextColorReachedMaxRepetitions)
 
                     repetitions[nextColorIndex]++
-                    nextColor = colors[nextColorIndex].color
+                    nextColor = colors[nextColorIndex].shiny_color
                 }
 
                 grid[row][col] = nextColor
