@@ -6,9 +6,12 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AnimationUtils
+
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+
 import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.PlayersGridController
 import com.uabc.computacion.jonathan1168659.rubiksrace.controller.RubiksRaceGameController
@@ -300,6 +303,12 @@ class MainActivity : AppCompatActivity()
         else
         {
             errorSound.start()
+            bind.playersGrid.startAnimation(
+                AnimationUtils.loadAnimation(
+                    this,
+                    R.anim.shake
+                )
+            )
             return false
         }
     }
