@@ -2,6 +2,7 @@ package com.uabc.computacion.jonathan1168659.rubiksrace.user.settings
 
 import android.content.Context
 import android.util.*
+import com.uabc.computacion.jonathan1168659.rubiksrace.R
 import java.io.*
 
 class UserSettings
@@ -10,8 +11,9 @@ class UserSettings
     {
         private const val SETTINGS_FILE = "rubiksRaceSettings.json"
         private const val COLOR_BLIND_MODE = "colorBlindMode"
+        private const val BACKGROUND_COLOR = "backgroundColor"
         var colorBlindMode = false
-        private set
+        var backgroundColor = R.color.white
 
         fun fileNotExist(context: Context): Boolean
         {
@@ -28,7 +30,7 @@ class UserSettings
             settingsFile.createNewFile()
         }
 
-        fun saveSettings(context: Context, colorBlindMode: Boolean)
+        fun saveSettings(context: Context)
         {
             val out = context.openFileOutput(SETTINGS_FILE, Context.MODE_PRIVATE)
             val writer = JsonWriter(OutputStreamWriter(out, "UTF-8"))
@@ -37,8 +39,8 @@ class UserSettings
                 writer.setIndent("  ")
                 writer.beginObject()
                 writer.name(COLOR_BLIND_MODE).value(colorBlindMode)
+                writer.name(BACKGROUND_COLOR).value(backgroundColor)
                 writer.endObject()
-                this.colorBlindMode = colorBlindMode
                 Log.i("settings", "Settings guardados")
                 Log.i("settings", "Modo daltónico = ${this.colorBlindMode}")
             }
@@ -64,13 +66,11 @@ class UserSettings
                 {
                     val name = reader.nextName()
 
-                    if (name.equals(COLOR_BLIND_MODE))
+                    when
                     {
-                        colorBlindMode = reader.nextBoolean()
-                    }
-                    else
-                    {
-                        reader.skipValue()
+                        name.equals(COLOR_BLIND_MODE) -> colorBlindMode = reader.nextBoolean()
+                        name.equals(BACKGROUND_COLOR) -> backgroundColor = reader.nextInt()
+                        else                          -> reader.skipValue()
                     }
                 }
                 reader.endObject()
