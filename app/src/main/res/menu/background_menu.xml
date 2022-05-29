@@ -5,8 +5,8 @@
         android:id="@+id/white_background"
         android:title="@string/white_background" />
     <item
-        android:id="@+id/black_background"
-        android:title="@string/black_background" />
+        android:id="@+id/red_background"
+        android:title="@string/red_background" />
 
     <item
         android:id="@+id/purple_background"
